@@ -2,7 +2,13 @@ import React from 'react';
 
 function NavBar(props) {
     return (
-        <h3>Nav Bar</h3>
+        <div id = "navbar_info">
+            <h2>Recipe Heaven</h2>
+            <div id = "routes">
+                <p>Home</p>
+                <p>Favourites</p>
+            </div>
+        </div>
     )
 }
 

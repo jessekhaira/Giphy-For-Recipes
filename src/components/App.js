@@ -8,8 +8,10 @@ import '../stylesheets/App.css'
 class App extends React.Component{
   render() {
     return(
-      <div>
+      <div id = "App">
         <NavBar />
+        {/* Space div needed because nav bar position is fixed */}
+        <div id = "spacing_div"></div>
         <SearchBar /> 
         <Recipes /> 
       </div>
