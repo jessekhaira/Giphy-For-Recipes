@@ -31,6 +31,10 @@ class Recipes extends React.Component{
     }
 
     _windowEventListener() {
+        // account for different routes - /favourites doesn't have infinite scrolling
+        if (document.getElementById('gridHolder') === null) {
+            return; 
+        }
         // make an entirely new grid when we want to load more with infinite loading
         const new_grid = this._makeNewGrid(); 
         const gridHolder = document.getElementById('gridHolder');

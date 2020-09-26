@@ -52,8 +52,15 @@ body, #root, #App, html {
 #routes {
   display: flex;
 }
-#routes p {
+#routes a {
   margin-right: 10px;
+  text-decoration: none;
+  color: white;
+  transition: 0.3s ease-in-out;
+  border-bottom: 3px solid transparent;
+}
+#routes a:hover {
+  border-color: white;
 }
 
 #spacing_div {
@@ -93,6 +100,7 @@ body, #root, #App, html {
   background-color: var(--accent-color-gray);
   color: white;
   border-radius: 10px;
+  cursor: pointer;
 }
 
 #descr_title {
