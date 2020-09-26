@@ -1,0 +1,31 @@
+@media(max-width:600px) {
+
+    #navbar_info {
+        flex-direction: column;
+        height: 11%;
+        justify-content: start;
+        align-items: center;
+        h2 {
+            text-align: center;
+            margin-bottom: 0px;
+            position: relative;
+            bottom: 10px;
+        }
+    }
+
+    #spacing_div {
+        height: 150px;
+    }
+
+    #routes {
+        flex-direction: column;
+        margin-top: 0px;
+        text-align: center;
+        position: relative;
+        bottom: 7px;
+
+        p {
+            margin: 0px
+        }
+    }
+}
