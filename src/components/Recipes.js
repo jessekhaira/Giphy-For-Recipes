@@ -5,7 +5,6 @@ class Recipes extends React.Component{
         super(props);
 
         // need local state for grid
-        this.state = {numGrids:1}; 
         this._addWindowEventListener = this._addWindowEventListener.bind(this);
         this._windowEventListener = this._windowEventListener.bind(this);
         this._initGridCells = this._initGridCells.bind(this);
@@ -36,23 +35,28 @@ class Recipes extends React.Component{
         const new_grid = this._makeNewGrid(); 
         const gridHolder = document.getElementById('gridHolder');
         const lastGrid = gridHolder.children[gridHolder.children.length-1];
-        const lastGridNum = lastGrid.id[lastGrid.id.length-1];
-        // console.log(window.scrollY);
-        // console.log(document.documentElement.scrollHeight); 
-        const totalHeight = lastGrid.scrollHeight+window.scrollY+125;
-        console.log(document.documentElement.offsetHeight);
-        console.log(totalHeight);
-        if (Math.abs(totalHeight-document.documentElement.offsetHeight) <=10){
-            this.setState((state) => ({numGrids:this.state.numGrids+1}));
-            // always keeping three columns, but num rows goes up by 3 to account for
-            // new api calls 
+        let totalHeight = 0; 
+        let equalityNum = 10; 
+        // +125 and -6952 come from playing around on the browser and finding values
+        // that'll make the equality work as expected (when user scrolls past the last grid cell
+        // in the last grid, add new grid). Also need an if statement here to account for the fact
+        // we have a media query so the totalHeight the user has to have scrolled is different
+        // depending on width of the doc element 
+        if (document.documentElement.clientWidth >= 1000) {
+            totalHeight = lastGrid.scrollHeight+window.scrollY+125;
+        }
+        else if (document.documentElement.clientWidth < 1000) {
+            totalHeight = lastGrid.scrollHeight+window.scrollY-1394;
+
+        }
+        if (Math.abs(totalHeight-document.documentElement.offsetHeight) <=equalityNum){
             gridHolder.appendChild(new_grid);
         }
     }
 
     _makeNewGrid() {
         const new_grid = document.createElement('div');
-        this._setGridProperties(new_grid);
+        new_grid.className = "grid";
         for (let i=0; i<9; i++) {
             const div = document.createElement('div');
             this._addImgDescrTitle(div);
@@ -61,40 +65,62 @@ class Recipes extends React.Component{
         return new_grid; 
     }
 
-    _setGridProperties(new_grid) {
-        new_grid.style.display = 'grid';
-        new_grid.style.gridTemplateRows = `repeat(3, minmax(100px, 1fr))`;
-        new_grid.style.gridTemplateColumns = `repeat(3, minmax(150px, 0.3fr))`;
-        new_grid.style.height = '720px';
-        new_grid.style.justifyContent = 'center';
-        new_grid.style.gap = '5px 15px';
-    }
-
-
-
     _initGridCells() {
         const gridCells = document.getElementById('grid1').children;
-        this._setGridProperties(document.getElementById('grid1'));
-        let i =0;
         for (const cell of gridCells) {
             this._addImgDescrTitle(cell);
         }
     }
 
     _addImgDescrTitle(obj) {
-        const img_recipe = document.createElement('img');
-        const recipe_descr = document.createElement('p');
-        const recipe_title = document.createElement('h2');
-        obj.appendChild(img_recipe);
-        obj.appendChild(recipe_descr);
-        obj.appendChild(recipe_title);
+        const star_div = this._createStarIcon();
+        const recipe_descr_div = this._createRecipeDescrDiv(star_div); 
+        obj.appendChild(recipe_descr_div);
         obj.className = 'gridCell'; 
     }
+
+    _createStarIcon() {
+        const star_div = document.createElement('div');
+        star_div.id = 'star_div';
+        const star = document.createElement('i');
+        star.id = 'star';
+        star.className = "far fa-star";
+        star_div.appendChild(star);
+        return star_div;
+    }
+
+    _createRecipeDescrDiv(star_div) {
+        const img_recipe_descr_div = document.createElement('div');
+        img_recipe_descr_div.id = 'recipe_descr_div';
+
+        const descr_title = document.createElement('div');
+        descr_title.id = 'descr_title';
+
+        const img_div = document.createElement('div');
+        img_div.id = "img_div";
+        const img = document.createElement('img');
+        img_div.appendChild(img); 
+        img.src = "https://joyfoodsunshine.com/wp-content/uploads/2016/01/best-chocolate-chip-cookies-recipe-ever-no-chilling-1.jpg";
+
+        const recipe_descr = document.createElement('p');
+        const recipe_title = document.createElement('h2');
+        recipe_descr.innerHTML = "description";
+        recipe_title.innerHTML = "title";
+
+        descr_title.appendChild(star_div);
+        descr_title.appendChild(recipe_title);
+        descr_title.appendChild(recipe_descr);
+
+        img_recipe_descr_div.appendChild(img_div);
+        img_recipe_descr_div.appendChild(descr_title);
+        return img_recipe_descr_div; 
+    }
+
 
     render() {
         return(
             <div id = "gridHolder">
-                <div id = "grid1">
+                <div id = "grid1" className = "grid">
                     <div></div>
                     <div></div>
                     <div></div>
