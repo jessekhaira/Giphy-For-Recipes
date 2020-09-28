@@ -4,7 +4,6 @@ import NavBar from './NavBar';
 import Recipes from './Recipes';
 import SearchBar from './SearchBar';
 import Favourites from './Favourites';
-
 import {
   BrowserRouter as Router,
   Switch,

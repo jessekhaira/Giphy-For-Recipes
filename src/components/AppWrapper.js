@@ -5,6 +5,7 @@ import App from './App';
 import '../stylesheets/App.css'
 
 const reduxStore = createStore(() => 'x');
+
 function AppWrapper() {
   return (
       <Provider store = {reduxStore}>
