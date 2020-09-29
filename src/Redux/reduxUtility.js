@@ -10,21 +10,14 @@ export const ADD_TO_FAVOURITES = "ADD_TO_FAVOURITES";
 // removing post removes it from favourites
 export const REMOVE_FROM_FAVOURITES = "REMOVE_FROM_FAVOURITES"; 
 
-// Init state & state constants 
-export const HOME = "HOME";
-export const FAVOURITES = "FAVOURITES";
-export const FAVOURITES_HASH_SET = new Set();
-export const ITEMS_HOME = []; 
-
-export const INIT_STATE = {
-    HOME: {
-        isFetching: true,
-        lastUpdated: null,
-        items: ITEMS_HOME
-    },
-
-    FAVOURITES: {
-        posts: FAVOURITES_HASH_SET
-    }
+// Create Reducer pure function
+export function createReducer(initialState, handlers) {
+    return function reducer(state = initialState, action) {
+      if (handlers.hasOwnProperty(action.type)) {
+        return handlers[action.type](state, action);
+      } 
+      else {
+        return state;
+      }
+   }
 }
-

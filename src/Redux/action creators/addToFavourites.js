@@ -1,4 +1,4 @@
-import {ADD_TO_FAVOURITES} from "../reduxConstants";
+import {ADD_TO_FAVOURITES} from "../reduxUtility";
 
 // Synchronous action creator - no api call here
 

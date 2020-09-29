@@ -1,4 +1,4 @@
-import {RECIEVE_POSTS} from '../reduxConstants';
+import {RECIEVE_POSTS} from '../reduxUtility';
 
 
 export default function recievePosts(data) {
