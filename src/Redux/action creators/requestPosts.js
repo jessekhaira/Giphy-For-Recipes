@@ -5,3 +5,4 @@ export default function requestPosts() {
         type: REQUEST_POSTS
     }
 }
+

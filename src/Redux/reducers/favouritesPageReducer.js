@@ -1,18 +1,19 @@
 import {createReducer, ADD_TO_FAVOURITES, REMOVE_FROM_FAVOURITES} from '../reduxUtility';
-import addToFavourites from './favouritesUtilityFunctions/addToFavourites';
-import removeFromFavourites from './favouritesUtilityFunctions/removeFromFavourites';
+import addToFavouritesReducer from './favouritesUtilityFunctions/addToFavouritesReducer';
+import removeFromFavouritesReducer from './favouritesUtilityFunctions/removeFromFavouritesReducer';
 
 
 // Object contains mapping from action types to handler functions which return new state objects in response
 // to actions. Removes the need for many switch/case statements when used in conjuction with createReducer
 const map_actionType_function = {
-    ADD_TO_FAVOURITES: addToFavourites,
-    REMOVE_FROM_FAVOURITES: removeFromFavourites
+    ADD_TO_FAVOURITES: addToFavouritesReducer,
+    REMOVE_FROM_FAVOURITES: removeFromFavouritesReducer
 };
 
-// only state contained here is the hash set which contains all the posts that should appear on this page
-const FAVOURITES_HASH_SET = new Set();
+// only state contained here is an object which will contain mappings between grid cell id's (strings) 
+// and the grid cells themselves 
+const INIT_FAVOURITES = {}; 
 
-export const favouritesPageReducer = createReducer(FAVOURITES_HASH_SET, map_actionType_function);
+export const favouritesPageReducer = createReducer(INIT_FAVOURITES, map_actionType_function);
 
 
