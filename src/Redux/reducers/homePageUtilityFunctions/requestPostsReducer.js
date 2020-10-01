@@ -1,3 +1,4 @@
 export default function requestPostsReducer(state, action) {
-    return {}; 
+    return Object.assign({}, state, {isFetching:true});
 }
+
