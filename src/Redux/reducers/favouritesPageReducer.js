@@ -12,8 +12,8 @@ const map_actionType_function = {
 
 // only state contained here is an object which will contain mappings between grid cell id's (strings) 
 // and the grid cells themselves 
-const INIT_FAVOURITES = {}; 
+const favourited = {}; 
 
-export const favouritesPageReducer = createReducer(INIT_FAVOURITES, map_actionType_function);
+export const favouritesPageReducer = createReducer(favourited, map_actionType_function);
 
 

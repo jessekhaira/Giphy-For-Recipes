@@ -1,4 +1,7 @@
 import React from 'react';
+import {connect} from 'react-redux';
+import mapDispatchToPropsRecipes from '../React-Redux-maps/Recipes/mapDispatchToProps';
+import mapStateToPropsRecipes from '../React-Redux-maps/Recipes/mapStateToProps';
 
 class Recipes extends React.Component{
     constructor(props) {
@@ -142,4 +145,6 @@ class Recipes extends React.Component{
     }
 }
 
-export default Recipes; 
+let connectedComponent = connect(mapStateToPropsRecipes, mapDispatchToPropsRecipes)(Recipes); 
+
+export {connectedComponent as Recipes};  

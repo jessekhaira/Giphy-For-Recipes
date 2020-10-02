@@ -1,4 +1,7 @@
 import React from 'react';
+import {connect} from 'react-redux';
+import mapStateToProps from '../React-Redux-maps/Favourites/mapStateToProps';
+import mapDispatchToProps from '../React-Redux-maps/Recipes/mapDispatchToProps';
 
 class Favourites extends React.Component {
     /*Part of the redux state: hashset containing all the divs that have been favourited. 
@@ -9,7 +12,9 @@ class Favourites extends React.Component {
     in the hash set. If the number favorited goes past 9, create a new grid. 
 
     */ 
-
+   constructor(props) {
+       super(props);
+   }
     
     render() {
         return(
@@ -18,4 +23,6 @@ class Favourites extends React.Component {
     }
 }
 
-export default Favourites; 
+let connectedComponent = connect(mapStateToProps, mapDispatchToProps)(Favourites); 
+
+export {connectedComponent as Favourites}; 
