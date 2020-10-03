@@ -1,19 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Dosis:wght@600&display=swap");
-@media (max-width: 1000px) {
-  .grid {
-    display: grid;
-    grid-template-rows: repeat(1, 250px);
-    grid-template-columns: repeat(1, 430px);
-    height: 2250px;
-    justify-content: center;
-  }
-
-  #img_div img {
-    margin: 10px;
-    width: 100%;
-    height: 195px;
-  }
-}
 * {
   box-sizing: border-box;
 }
@@ -40,11 +25,11 @@ body, #root, #App, html {
   top: 0px;
   width: 100%;
   height: 5%;
-  font-family: "Dosis";
   color: white;
   background-color: var(--accent-color-red);
   z-index: 3;
 }
+
 #navbar_info h2 {
   margin-left: 10px;
 }
@@ -52,6 +37,7 @@ body, #root, #App, html {
 #routes {
   display: flex;
 }
+
 #routes a {
   margin-right: 10px;
   text-decoration: none;
@@ -59,6 +45,7 @@ body, #root, #App, html {
   transition: 0.3s ease-in-out;
   border-bottom: 3px solid transparent;
 }
+
 #routes a:hover {
   border-color: white;
 }
@@ -109,8 +96,9 @@ body, #root, #App, html {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  text-align: center;
   width: 50%;
-  height: 175px;
+  height: 100%;
 }
 
 #star_div {
@@ -118,13 +106,14 @@ body, #root, #App, html {
   position: relative;
   bottom: 10px;
 }
+
 #star_div #star {
   margin: 5px;
 }
 
 #recipe_descr_div {
   display: flex;
-  height: 210px;
+  height: 260px;
 }
 
 .grid {
@@ -141,6 +130,7 @@ body, #root, #App, html {
   height: 195px;
   z-index: 2;
 }
+
 #img_div img {
   margin: 10px;
   width: 100%;

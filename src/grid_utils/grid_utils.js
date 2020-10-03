@@ -40,17 +40,54 @@ function createRecipeDescrDiv(star_div) {
     img_div.appendChild(img); 
     img.src = "https://joyfoodsunshine.com/wp-content/uploads/2016/01/best-chocolate-chip-cookies-recipe-ever-no-chilling-1.jpg";
 
-    const recipe_descr = document.createElement('p');
-    const recipe_title = document.createElement('h2');
-    recipe_title.innerHTML = "title";
-
-    descr_title.appendChild(star_div);
-    descr_title.appendChild(recipe_title);
-    descr_title.appendChild(recipe_descr);
+    const [recipeSourceLink, recipeYTLink, recipe_title] = configureDescriptionInfo(); 
+    addChildrenTo(descr_title, star_div, recipe_title, recipeSourceLink, recipeYTLink);
 
     img_recipe_descr_div.appendChild(img_div);
     img_recipe_descr_div.appendChild(descr_title);
     return img_recipe_descr_div; 
+}
+
+function addChildrenTo(container, ...args) {
+    for (let child of args) {
+        container.appendChild(child); 
+    }
+}
+
+function configureDescriptionInfo() {
+    const recipeSourceLink = document.createElement('a');
+    recipeSourceLink.style.marginBottom = '15px';
+
+    const recipeYTLink = document.createElement('a'); 
+    const recipe_title = document.createElement('h2');
+
+    recipeSourceLink.className = 'linksGridCell';
+    recipeYTLink.className = 'linksGridCell'; 
+    recipe_title.style.fontFamily = "Dosis";
+
+    styleAnchorLinks(recipeYTLink, recipeSourceLink);
+
+    return [recipeSourceLink, recipeYTLink, recipe_title]; 
+}
+
+function styleAnchorLinks(...args) {
+    for (const obj of args) {
+        obj.style.textDecoration = 'none';
+        obj.style.fontFamily = "Dosis";
+        obj.style.color = '#C3073F';
+        addHoverToLinks(obj); 
+    }
+}
+
+
+function addHoverToLinks(obj) {
+    obj.addEventListener('mouseover', function(e) {
+        e.target.style.textDecoration = 'underline';
+    });
+
+    obj.addEventListener('mouseout', (e) => {
+        e.target.style.textDecoration = 'none'
+    });
 }
 
 export {makeNewGrid, addImgDescrTitle, createRecipeDescrDiv, createStarIcon};
