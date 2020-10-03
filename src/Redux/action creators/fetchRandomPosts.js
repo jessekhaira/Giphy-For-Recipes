@@ -2,6 +2,7 @@ import requestPosts from './requestPosts';
 import recievePosts from './recievePosts';
 import fetchRandom from '../../api_utils/fetchRandom';
 
+
 // thunk action creator
 // needed as we are making call to api to fetch data 
 export default function fetchRandomPosts() {
@@ -14,7 +15,7 @@ export default function fetchRandomPosts() {
         // begun - dispatch request posts action 
         dispatch(requestPosts());
 
-        // make 9 calls to get 9 packets of data 
+        // make 9 calls to get 9 recipes 
         return Promise.all([
             fetchRandom(),
             fetchRandom(), 
@@ -27,7 +28,9 @@ export default function fetchRandomPosts() {
             fetchRandom(),
             fetchRandom(), 
             fetchRandom(),
-        ]).then(data => dispatch(recievePosts(data)))
+        ]).then(data => {
+            dispatch(recievePosts(data));
+        }); 
     }
 }
 

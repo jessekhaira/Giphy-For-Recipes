@@ -71,6 +71,7 @@ body, #root, #App, html {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-bottom: 20px;
 }
 
 #search_query {
@@ -130,7 +131,7 @@ body, #root, #App, html {
   display: grid;
   grid-template-rows: repeat(3, minmax(100px, 1fr));
   grid-template-columns: repeat(3, 320px);
-  height: 720px;
+  height: 850px;
   justify-content: center;
   gap: 5px 15px;
 }
@@ -146,6 +147,38 @@ body, #root, #App, html {
   height: 195px;
 }
 
+#gridHolder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#spinnerHolder {
+  height: 800px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loader {
+  height: 90px;
+  width: 90px;
+  border-radius: 50%;
+  background-color: var(--main-bg-color);
+  border: 10px solid var(--accent-color-gray);
+  border-top: 10px solid var(--accent-color-red);
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 ::-webkit-input-placeholder {
   color: var(--accent-color-red);
 }
