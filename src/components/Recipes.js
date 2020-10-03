@@ -72,10 +72,10 @@ class Recipes extends React.Component{
         // we have a media query so the totalHeight the user has to have scrolled is different
         // depending on width of the doc element 
         if (document.documentElement.clientWidth >= 1000) {
-            totalHeight = lastGrid.scrollHeight+window.scrollY+70;
+            totalHeight = lastGrid.scrollHeight+window.scrollY-20;
         }
         else if (document.documentElement.clientWidth < 1000) {
-            totalHeight = lastGrid.scrollHeight+window.scrollY-1320;
+            totalHeight = lastGrid.scrollHeight+window.scrollY-1990;
         }
         if (Math.abs(totalHeight-document.documentElement.offsetHeight) <=equalityNum){
             gridHolder.appendChild(new_grid);

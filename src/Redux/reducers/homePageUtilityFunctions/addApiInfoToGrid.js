@@ -14,10 +14,10 @@ export default function addApiInfoToGrid(action, newGridChildren, i) {
     titleRecipe.innerHTML = recipeTitle; 
     //txt nodes to add to paragraph elements
     recipeSourceLink.href = strSource; 
-    recipeSourceLink.innerHTML = 'Click me to find out more information!'
+    recipeSourceLink.innerHTML = 'Click me to find out more information about this recipe!'
 
     recipeYTLink.href = strYT;
     if (strYT.length !== 0) {
-        recipeYTLink.innerHTML = 'Click me to find out more information in video format!'
+        recipeYTLink.innerHTML = 'Click me to find out more information about this recipe in video format!'
     }
 }

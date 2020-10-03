@@ -38,6 +38,8 @@ function createRecipeDescrDiv(star_div) {
     img_div.id = "img_div";
     const img = document.createElement('img');
     img_div.appendChild(img); 
+    img.style.height = '260px';
+    img.style.width = '100%';
     img.src = "https://joyfoodsunshine.com/wp-content/uploads/2016/01/best-chocolate-chip-cookies-recipe-ever-no-chilling-1.jpg";
 
     const [recipeSourceLink, recipeYTLink, recipe_title] = configureDescriptionInfo(); 
@@ -74,7 +76,8 @@ function styleAnchorLinks(...args) {
     for (const obj of args) {
         obj.style.textDecoration = 'none';
         obj.style.fontFamily = "Dosis";
-        obj.style.color = '#C3073F';
+        obj.style.color = 'rgb(235, 52, 52)';
+        obj.style.fontSize = '14px';
         addHoverToLinks(obj); 
     }
 }
