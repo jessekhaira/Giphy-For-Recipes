@@ -86,9 +86,6 @@ body, #root, #App, html {
 
 .gridCell {
   border: 1px solid;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   margin: 10px;
   background-color: var(--accent-color-gray);
   color: white;
@@ -97,8 +94,7 @@ body, #root, #App, html {
 
 #descr_title {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-around;
   flex-direction: column;
   text-align: center;
   width: 50%;
@@ -146,6 +142,17 @@ body, #root, #App, html {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+#star_div {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  height: 10px;
+}
+#star_div div {
+  height: 16px;
+  cursor: pointer;
 }
 
 .loader {

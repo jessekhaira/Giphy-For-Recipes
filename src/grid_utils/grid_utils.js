@@ -12,7 +12,8 @@ function makeNewGrid() {
 
 function addImgDescrTitle(obj) {
     const star_div = createStarIcon();
-    const recipe_descr_div = createRecipeDescrDiv(star_div); 
+    const recipe_descr_div = createRecipeDescrDiv(); 
+    obj.appendChild(star_div);
     obj.appendChild(recipe_descr_div);
     obj.className = 'gridCell'; 
 }
@@ -21,18 +22,29 @@ function createStarIcon() {
     const star_div = document.createElement('div');
     star_div.id = 'star_div';
     const star = document.createElement('i');
+    const starWrapper = document.createElement('div');
     star.id = 'star';
     star.className = "far fa-star";
-    star_div.appendChild(star);
+    star.style.marginRight = '10px';
+    star.style.marginTop = '10px';
+    // need a star wrapper in order to have the cursor being pointer
+    // when its being hovered 
+    starWrapper.appendChild(star);
+    starWrapper.style.cursor = 'pointer'; 
+    starWrapper.style.height = '20px';
+    starWrapper.style.zIndex = 5; 
+    star_div.appendChild(starWrapper);
     return star_div;
 }
 
-function createRecipeDescrDiv(star_div) {
+function createRecipeDescrDiv() {
     const img_recipe_descr_div = document.createElement('div');
     img_recipe_descr_div.id = 'recipe_descr_div';
 
     const descr_title = document.createElement('div');
     descr_title.id = 'descr_title';
+    descr_title.style.position = 'relative';
+    descr_title.style.bottom = '15px';
 
     const img_div = document.createElement('div');
     img_div.id = "img_div";
@@ -42,8 +54,8 @@ function createRecipeDescrDiv(star_div) {
     img.style.width = '100%';
     img.src = "https://joyfoodsunshine.com/wp-content/uploads/2016/01/best-chocolate-chip-cookies-recipe-ever-no-chilling-1.jpg";
 
-    const [recipeSourceLink, recipeYTLink, recipe_title] = configureDescriptionInfo(); 
-    addChildrenTo(descr_title, star_div, recipe_title, recipeSourceLink, recipeYTLink);
+    const holder_p_anchorLinks = configureDescriptionInfo(); 
+    addChildrenTo(descr_title, holder_p_anchorLinks); 
 
     img_recipe_descr_div.appendChild(img_div);
     img_recipe_descr_div.appendChild(descr_title);
@@ -58,18 +70,22 @@ function addChildrenTo(container, ...args) {
 
 function configureDescriptionInfo() {
     const recipeSourceLink = document.createElement('a');
-    recipeSourceLink.style.marginBottom = '15px';
 
     const recipeYTLink = document.createElement('a'); 
     const recipe_title = document.createElement('h2');
-
-    recipeSourceLink.className = 'linksGridCell';
-    recipeYTLink.className = 'linksGridCell'; 
+    // need a spacing div in order to exact a margin between the two anchor links
+    // setting margin bot directly on anchor link doesn't give desired result 
+    const spacing_div = document.createElement('div'); 
+    spacing_div.style.height = '20px'; 
     recipe_title.style.fontFamily = "Dosis";
+
 
     styleAnchorLinks(recipeYTLink, recipeSourceLink);
 
-    return [recipeSourceLink, recipeYTLink, recipe_title]; 
+    const holder_p_anchorLinks = document.createElement('div');
+    addChildrenTo(holder_p_anchorLinks,recipe_title, recipeSourceLink, spacing_div, recipeYTLink);
+
+    return holder_p_anchorLinks;
 }
 
 function styleAnchorLinks(...args) {
