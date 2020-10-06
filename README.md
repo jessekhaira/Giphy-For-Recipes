@@ -2,8 +2,6 @@
 ## Description
 This is an app I built using React and Redux utilizing the free recipe API provided at: https://www.themealdb.com/api.php?ref=apilist.fun.
 
-The app was deployed on github pages and can be viewed at: %s
-
 ## Notes
 Still in progress with features still being added.
 
