@@ -68,10 +68,10 @@ class Recipes extends React.Component{
         // we have a media query so the totalHeight the user has to have scrolled is different
         // depending on width of the doc element 
         if (document.documentElement.clientWidth >= 1000) {
-            totalHeight = lastGrid.scrollHeight+window.scrollY-20;
+            totalHeight = lastGrid.scrollHeight+window.scrollY;
         }
         else if (document.documentElement.clientWidth < 1000) {
-            totalHeight = lastGrid.scrollHeight+window.scrollY-1990;
+            totalHeight = lastGrid.scrollHeight+window.scrollY-1960;
         }
         if (Math.abs(totalHeight-document.documentElement.offsetHeight) <=equalityNum){
             this.props.fetchRandomPosts(); 
