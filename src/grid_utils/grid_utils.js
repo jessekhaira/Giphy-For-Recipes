@@ -21,11 +21,10 @@ function addImgDescrTitle(obj) {
 function createStarIcon() {
     const star_div = document.createElement('div');
     star_div.id = 'star_div';
-    star_div.style.zIndex = -1; 
     const star = document.createElement('i');
     star.style.zIndex = -1; 
     const starWrapper = document.createElement('div');
-    starWrapper.style.zIndex = -1; 
+    starWrapper.id = 'starWrapper';
     star.id = 'star';
     star.className = "far fa-star";
     star.style.marginRight = '10px';
@@ -35,7 +34,7 @@ function createStarIcon() {
     starWrapper.appendChild(star);
     starWrapper.style.cursor = 'pointer'; 
     starWrapper.style.height = '20px';
-    starWrapper.style.zIndex = 5; 
+    starWrapper.style.zIndex = 2;
     star_div.appendChild(starWrapper);
     return star_div;
 }
