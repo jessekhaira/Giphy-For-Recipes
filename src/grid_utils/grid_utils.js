@@ -21,8 +21,11 @@ function addImgDescrTitle(obj) {
 function createStarIcon() {
     const star_div = document.createElement('div');
     star_div.id = 'star_div';
+    star_div.style.zIndex = -1; 
     const star = document.createElement('i');
+    star.style.zIndex = -1; 
     const starWrapper = document.createElement('div');
+    starWrapper.style.zIndex = -1; 
     star.id = 'star';
     star.className = "far fa-star";
     star.style.marginRight = '10px';
@@ -92,12 +95,21 @@ function styleAnchorLinks(...args) {
     for (const obj of args) {
         obj.style.textDecoration = 'none';
         obj.style.fontFamily = "Dosis";
-        obj.style.color = 'rgb(235, 52, 52)';
+        obj.style.color = 'rgb(245, 85,85)';
         obj.style.fontSize = '14px';
         addHoverToLinks(obj); 
     }
 }
 
+function addSpinnerDiv() {
+    const spinnerHolder = document.createElement('div');
+    spinnerHolder.id = "spinnerHolder"; 
+    const spinner = document.createElement('div');
+    spinner.className = 'loader';
+    spinnerHolder.appendChild(spinner); 
+    const gridHolder = document.getElementById("gridHolder");
+    gridHolder.appendChild(spinnerHolder); 
+}
 
 function addHoverToLinks(obj) {
     obj.addEventListener('mouseover', function(e) {
@@ -109,4 +121,4 @@ function addHoverToLinks(obj) {
     });
 }
 
-export {makeNewGrid, addImgDescrTitle, createRecipeDescrDiv, createStarIcon};
+export {makeNewGrid, addImgDescrTitle, addSpinnerDiv,createRecipeDescrDiv, createStarIcon};

@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import mapDispatchToPropsRecipes from '../React-Redux-maps/Recipes/mapDispatchToProps';
 import mapStateToPropsRecipes from '../React-Redux-maps/Recipes/mapStateToProps';
 
-import {makeNewGrid} from '../grid_utils/grid_utils';
+import {makeNewGrid, addSpinnerDiv} from '../grid_utils/grid_utils';
 
 class Recipes extends React.Component{
     constructor(props) {
@@ -38,9 +38,7 @@ class Recipes extends React.Component{
 
     _addGridsToGridHolder() {
         const gridHolder = document.getElementById('gridHolder');
-        for (const gridObj of this.props.items) {
-            gridHolder.appendChild(gridObj); 
-        }
+        gridHolder.appendChild(this.props.items[this.props.items.length-1]);
     }
 
     componentDidUpdate(prevProps) {
@@ -56,12 +54,10 @@ class Recipes extends React.Component{
 
     _windowEventListener() {
         // account for different routes - /favourites doesn't have infinite scrolling
-        // account for face we could be fetching data right now 
+        // account for fact we could be fetching data right now 
         if (document.getElementById('gridHolder') === null || this.props.isFetching) {
             return; 
         }
-        // make an entirely new grid when we want to load more with infinite loading
-        const new_grid = makeNewGrid(); 
         const gridHolder = document.getElementById('gridHolder');
         const lastGrid = gridHolder.children[gridHolder.children.length-1];
         let totalHeight = 0; 
@@ -78,21 +74,15 @@ class Recipes extends React.Component{
             totalHeight = lastGrid.scrollHeight+window.scrollY-1990;
         }
         if (Math.abs(totalHeight-document.documentElement.offsetHeight) <=equalityNum){
-            gridHolder.appendChild(new_grid);
+            this.props.fetchRandomPosts(); 
         }
     }
 
     render() {
         return(
             <div id = "recipe_holder">
-                {this.props.isFetching ? 
-                    <div id = "spinnerHolder">
-                        <div id = "spinner" className = "loader"></div>
-                    </div> :
-
-                    <div id = "gridHolder">
-                    </div>
-                } 
+                <div id = "gridHolder">
+                </div>
             </div>
         )
     }
