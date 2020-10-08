@@ -9,7 +9,6 @@ function makeNewGrid() {
     return new_grid; 
 }
 
-
 function addImgDescrTitle(obj) {
     const star_div = createStarIcon();
     const recipe_descr_div = createRecipeDescrDiv(); 
@@ -21,47 +20,62 @@ function addImgDescrTitle(obj) {
 function createStarIcon() {
     const star_div = document.createElement('div');
     star_div.id = 'star_div';
+    const star = createStar(); 
+    const starWrapper = createStarWrapper(); 
+    // need a star wrapper in order to have the cursor being pointer
+    // when its being hovered 
+    starWrapper.appendChild(star);
+    star_div.appendChild(starWrapper);
+    return star_div;
+}
+
+function createStar() {
     const star = document.createElement('i');
     star.style.zIndex = -1; 
-    const starWrapper = document.createElement('div');
-    starWrapper.id = 'starWrapper';
     star.id = 'star';
     star.className = "far fa-star";
     star.style.marginRight = '10px';
     star.style.marginTop = '10px';
-    // need a star wrapper in order to have the cursor being pointer
-    // when its being hovered 
-    starWrapper.appendChild(star);
+    return star; 
+}
+
+function createStarWrapper() {
+    const starWrapper = document.createElement('div');
+    starWrapper.id = 'starWrapper';
     starWrapper.style.cursor = 'pointer'; 
     starWrapper.style.height = '20px';
     starWrapper.style.zIndex = 2;
-    star_div.appendChild(starWrapper);
-    return star_div;
+    return starWrapper; 
 }
 
 function createRecipeDescrDiv() {
     const img_recipe_descr_div = document.createElement('div');
     img_recipe_descr_div.id = 'recipe_descr_div';
+    const descr_title = createDescrTitleForGridCell(); 
+    const img_div = createImgDivForGridCell(); 
+    const holder_p_anchorLinks = configureDescriptionInfo(); 
+    addChildrenTo(descr_title, holder_p_anchorLinks); 
+    img_recipe_descr_div.appendChild(img_div);
+    img_recipe_descr_div.appendChild(descr_title);
+    return img_recipe_descr_div; 
+}
 
+function createDescrTitleForGridCell() {
     const descr_title = document.createElement('div');
     descr_title.id = 'descr_title';
     descr_title.style.position = 'relative';
     descr_title.style.bottom = '15px';
+    return descr_title; 
+}
 
+function createImgDivForGridCell() {
     const img_div = document.createElement('div');
     img_div.id = "img_div";
     const img = document.createElement('img');
     img_div.appendChild(img); 
     img.style.height = '260px';
     img.style.width = '100%';
-    img.src = "https://joyfoodsunshine.com/wp-content/uploads/2016/01/best-chocolate-chip-cookies-recipe-ever-no-chilling-1.jpg";
-
-    const holder_p_anchorLinks = configureDescriptionInfo(); 
-    addChildrenTo(descr_title, holder_p_anchorLinks); 
-
-    img_recipe_descr_div.appendChild(img_div);
-    img_recipe_descr_div.appendChild(descr_title);
-    return img_recipe_descr_div; 
+    return img_div; 
 }
 
 function addChildrenTo(container, ...args) {
