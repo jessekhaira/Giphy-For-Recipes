@@ -3,7 +3,7 @@ import addApiInfoToGrid from './addApiInfoToGrid';
 export default function recievePostsReducer(state, action) {
     const newItems = [];
     for (const grid of state.items) {
-        newItems.push(grid.cloneNode()); 
+        newItems.push(grid.cloneNode(true)); 
     }
     const newGridAdded = makeNewGrid();
     const newGridChildren = newGridAdded.children;
