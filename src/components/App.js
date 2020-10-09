@@ -10,10 +10,15 @@ import {
   Route,
   Link
 } from "react-router-dom";
-
 import '../stylesheets/App.css'
+import mapStateToProps from '../React-Redux-maps/MainApp/mapStateToProps';
+import mapDispatchToProps from '../React-Redux-maps/MainApp/mapDispatchToProps';
+
 
 class App extends React.Component{
+  constructor(props) {
+    super(props);
+  }
   render() {
     return(
       <div id = "App">
@@ -23,14 +28,14 @@ class App extends React.Component{
               <Route path="/favourites">
                 <NavBar />
                 <div id = "spacing_div"></div>
-                <Favourites />
+                <Favourites favourited = {this.props.favourited} addToFavourites = {this.props.addToFavourites} removeFromFavourites = {this.props.removeFromFavourites}/>
               </Route>
 
               <Route path="/">
                 <NavBar />
                 <div id = "spacing_div"></div>
                 <SearchBar /> 
-                <Recipes /> 
+                <Recipes favourited = {this.props.favourited} addToFavourites = {this.props.addToFavourites} removeFromFavourites = {this.props.removeFromFavourites}/> 
               </Route>
 
             </Switch>
@@ -40,4 +45,6 @@ class App extends React.Component{
   }
 }
 
-export default App;
+let connectedComponent = connect(mapStateToProps, mapDispatchToProps)(App); 
+
+export {connectedComponent as App}; 

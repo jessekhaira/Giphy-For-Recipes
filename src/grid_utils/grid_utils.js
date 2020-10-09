@@ -36,12 +36,13 @@ function createStar() {
     star.className = "far fa-star";
     star.style.marginRight = '10px';
     star.style.marginTop = '10px';
+    star.style.transform = 'scale(1.35)'
     return star; 
 }
 
 function createStarWrapper() {
     const starWrapper = document.createElement('div');
-    starWrapper.id = 'starWrapper';
+    starWrapper.className = 'starWrapper';
     starWrapper.style.cursor = 'pointer'; 
     starWrapper.style.height = '20px';
     starWrapper.style.zIndex = 2;

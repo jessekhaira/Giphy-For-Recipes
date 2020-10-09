@@ -1,7 +1,5 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import mapStateToProps from '../React-Redux-maps/Favourites/mapStateToProps';
-import mapDispatchToProps from '../React-Redux-maps/Recipes/mapDispatchToProps';
 
 class Favourites extends React.Component {
     /*Part of the redux state: hashset containing all the divs that have been favourited. 
@@ -23,6 +21,4 @@ class Favourites extends React.Component {
     }
 }
 
-let connectedComponent = connect(mapStateToProps, mapDispatchToProps)(Favourites); 
-
-export {connectedComponent as Favourites}; 
+export {Favourites}; 
