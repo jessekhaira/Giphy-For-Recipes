@@ -86,8 +86,9 @@ function addChildrenTo(container, ...args) {
 
 function configureDescriptionInfo() {
     const recipeSourceLink = document.createElement('a');
-
+    recipeSourceLink.target = "_blank";
     const recipeYTLink = document.createElement('a'); 
+    recipeYTLink.target = "_blank";
     const recipe_title = document.createElement('h2');
     // need a spacing div in order to exact a margin between the two anchor links
     // setting margin bot directly on anchor link doesn't give desired result 
