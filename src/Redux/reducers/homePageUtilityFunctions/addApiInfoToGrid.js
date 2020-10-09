@@ -13,11 +13,17 @@ export default function addApiInfoToGrid(action, newGridChildren, i) {
     img_gridCell.src = img_thumbnail;
     titleRecipe.innerHTML = recipeTitle; 
     //txt nodes to add to paragraph elements
-    recipeSourceLink.href = strSource; 
-    recipeSourceLink.innerHTML = 'Click me to find out more information about this recipe!'
-
+    if (strSource) {
+        recipeSourceLink.href = strSource; 
+        recipeSourceLink.innerHTML = 'Click me to find out more information about this recipe!'
+    }
     recipeYTLink.href = strYT;
-    if (strYT.length !== 0) {
+    if (strYT) {
         recipeYTLink.innerHTML = 'Click me to find out more information about this recipe in video format!'
     }
+
+    if (!strSource && !strYT) {
+        recipeSourceLink.innerHTML = 'No further information about this recipe available'
+    }
 }
+
