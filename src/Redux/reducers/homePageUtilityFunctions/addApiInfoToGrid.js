@@ -4,12 +4,7 @@ export default function addApiInfoToGrid(action, newGridChildren, i) {
     const recipeTitle = data_obj.meals[0].strMeal; 
     const strSource = data_obj.meals[0].strSource;
     const strYT = data_obj.meals[0].strYoutube; 
-    
-    const img_gridCell = newGridChildren[i].querySelectorAll('.recipeImgs')[0];
-    const titleRecipe = newGridChildren[i].querySelectorAll('h2')[0];
-    const recipeSourceLink = newGridChildren[i].querySelectorAll('a')[0]; 
-    const recipeYTLink = newGridChildren[i].querySelectorAll('a')[1]; 
-
+    const [img_gridCell, titleRecipe, recipeSourceLink, recipeYTLink] = getNestedDOMNodes(newGridChildren[i]); 
     img_gridCell.src = img_thumbnail;
     titleRecipe.innerHTML = recipeTitle; 
     //txt nodes to add to paragraph elements
@@ -27,3 +22,11 @@ export default function addApiInfoToGrid(action, newGridChildren, i) {
     }
 }
 
+
+function getNestedDOMNodes(obj) {
+    const img_gridCell = obj.querySelectorAll('.recipeImgs')[0];
+    const titleRecipe = obj.querySelectorAll('h2')[0];
+    const recipeSourceLink = obj.querySelectorAll('a')[0]; 
+    const recipeYTLink = obj.querySelectorAll('a')[1];
+    return [img_gridCell, titleRecipe, recipeSourceLink, recipeYTLink];
+}
