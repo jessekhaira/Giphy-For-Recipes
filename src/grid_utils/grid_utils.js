@@ -73,6 +73,7 @@ function createImgDivForGridCell() {
     const img_div = document.createElement('div');
     img_div.id = "img_div";
     const img = document.createElement('img');
+    img.className = 'recipeImgs'; 
     img_div.appendChild(img); 
     img.style.height = '260px';
     img.style.width = '100%';
