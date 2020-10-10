@@ -9,7 +9,6 @@ class Recipes extends React.Component{
         this._addWindowEventListener = this._addWindowEventListener.bind(this);
         this._windowEventListener = this._windowEventListener.bind(this);
         this._starIconClickHandler = this._starIconClickHandler.bind(this); 
-        this.didInitStarHandler = 0; 
     }
 
 
@@ -47,21 +46,32 @@ class Recipes extends React.Component{
         gridHolder.appendChild(this.props.items[this.props.items.length-1]);
     }
 
-    _addClickEventListenerStar() {
-        [...document.getElementsByTagName('i')].forEach((starWrapper) => {
-            starWrapper.addEventListener('click', this._starIconClickHandler);
-        });
+    _addClickEventListenerStar(lastGridAdded = null) {
+        // This method should have two different behaviours
+        // One behaviour accounts for infinite scrolling
+        // For inf scrolling, lastGridAdded will be provided 
+        // and only that grid should recieve the event listener
+        // If the component is remounting after returning after a route however, event listeners should be 
+        // provided to every single icon element 
+        if (!lastGridAdded) {
+            [...document.getElementsByTagName('i')].forEach((starWrapper) => {
+                starWrapper.addEventListener('click', this._starIconClickHandler);
+            });
+        }
+        else {
+            [...lastGridAdded.querySelectorAll('i')].forEach((starWrapper) => {
+                starWrapper.addEventListener('click', this._starIconClickHandler); 
+            })
+        } 
     }
 
     componentDidUpdate(prevProps) {
         if (prevProps.items.length !== this.props.items.length) {
             this._addGridsToGridHolder(); 
-            // have to add the event listener the first time, the remainder we should not have to
-            if (!this.didInitStarHandler) {
-                this._addClickEventListenerStar(); 
-                this.didInitStarHandler = 1; 
-            }
-        }
+            // only add the star event listener to the last grid added
+            let lastGridAdded = document.getElementById('gridHolder').children[document.getElementById('gridHolder').children.length-1];
+            this._addClickEventListenerStar(lastGridAdded); 
+           }
     }
 
     componentWillUnmount() {
