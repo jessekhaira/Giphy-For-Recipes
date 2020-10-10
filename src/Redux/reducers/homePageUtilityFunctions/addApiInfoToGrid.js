@@ -4,9 +4,7 @@ export default function addApiInfoToGrid(action, newGridChildren, i) {
     const recipeTitle = data_obj.meals[0].strMeal; 
     const strSource = data_obj.meals[0].strSource;
     const strYT = data_obj.meals[0].strYoutube; 
-    // nested deep to get to the img tag and description of the recipe 
-    console.log(newGridChildren[i].querySelectorAll('a'));
-
+    
     const img_gridCell = newGridChildren[i].querySelectorAll('.recipeImgs')[0];
     const titleRecipe = newGridChildren[i].querySelectorAll('h2')[0];
     const recipeSourceLink = newGridChildren[i].querySelectorAll('a')[0]; 
