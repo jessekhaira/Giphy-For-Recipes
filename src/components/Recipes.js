@@ -99,20 +99,12 @@ class Recipes extends React.Component{
         const lastGrid = gridHolder.children[gridHolder.children.length-1];
         let totalHeight = 0; 
         let equalityNum = 10; 
-        // Vals come from playing around on the browser and finding values
-        // that'll make the equality work as expected (when user scrolls past the last grid cell
-        // in the last grid, add new grid). Also need an if statement here to account for the fact
-        // we have a media query so the totalHeight the user has to have scrolled is different
-        // depending on width of the doc element 
-        if (document.documentElement.clientWidth >= 1000) {
-            totalHeight = lastGrid.scrollHeight+window.scrollY-100; 
-        }
-        else if (document.documentElement.clientWidth < 1000) {
-            totalHeight = lastGrid.scrollHeight+window.scrollY-1960;
-        }
-        if (Math.abs(totalHeight-document.documentElement.offsetHeight) <=equalityNum){
+        if (
+            window.innerHeight + document.documentElement.scrollTop +1
+            >= document.documentElement.offsetHeight
+          ) {
             this.props.fetchRandomPosts(); 
-        }
+          }
     }
 
     render() {
