@@ -57,7 +57,6 @@ class Recipes extends React.Component{
         if (prevProps.items.length !== this.props.items.length) {
             this._addGridsToGridHolder(); 
             // have to add the event listener the first time, the remainder we should not have to
-            console.log(document.getElementsByTagName('i').length); 
             if (!this.didInitStarHandler) {
                 this._addClickEventListenerStar(); 
                 this.didInitStarHandler = 1; 
