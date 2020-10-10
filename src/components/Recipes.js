@@ -30,7 +30,7 @@ class Recipes extends React.Component{
         }
 
         if (!this.props.isFetching) {
-            this._addGridsToGridHolder(); 
+            this._addAllGridsToGridHolder(); 
             this._addClickEventListenerStar(); 
         }
     }
