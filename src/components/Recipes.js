@@ -113,16 +113,10 @@ class Recipes extends React.Component{
         if (document.getElementById('gridHolder') === null || this.props.isFetching) {
             return; 
         }
-        const gridHolder = document.getElementById('gridHolder');
-        const lastGrid = gridHolder.children[gridHolder.children.length-1];
-        let totalHeight = 0; 
-        let equalityNum = 10; 
-        if (
-            window.innerHeight + document.documentElement.scrollTop +1
-            >= document.documentElement.offsetHeight
-          ) {
+        const currentHeightOfPage = window.innerHeight + document.documentElement.scrollTop +1;
+        if (currentHeightOfPage>= document.documentElement.offsetHeight) {
             this.props.fetchRandomPosts(); 
-          }
+        }
     }
 
     render() {
