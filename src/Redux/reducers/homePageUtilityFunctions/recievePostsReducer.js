@@ -6,6 +6,12 @@ export default function recievePostsReducer(state, action) {
         newItems.push(grid.cloneNode(true)); 
     }
     const gridHolder = document.getElementById('gridHolder');
+    // if we don't detect a gridHolder on the DOM, that means we can't carry through with the update
+    // thus return the original state
+    if (gridHolder == null) {
+        return state; 
+    }
+    
     const newGridAdded = makeNewGrid(gridHolder.children.length);
     const newGridChildren = newGridAdded.children;
     for (let i=0; i<9; i++) {

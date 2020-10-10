@@ -1,3 +1,4 @@
+import { icon } from '@fortawesome/fontawesome-svg-core';
 import React from 'react';
 let count = 0; 
 class Recipes extends React.Component{
@@ -59,7 +60,7 @@ class Recipes extends React.Component{
         else {
             [...lastGridAdded.querySelectorAll('i')].forEach((starWrapper) => {
                 starWrapper.addEventListener('click', this._starIconClickHandler); 
-            })
+            });
         } 
     }
 
