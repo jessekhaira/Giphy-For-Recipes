@@ -28,17 +28,26 @@ class Recipes extends React.Component{
             window.scrollTo(0, 0);
         }
 
-        // make the call to the api to fetch the data only if there are no items on the page currently
-        // ie we have items cached, we don't need to get new ones if we go to favourites route and come back
+        // if no items stored in the state, fetch some and make first grid
+        // if items are stored, then grab them all and display them in a grid 
         if (this.props.items.length === 0) {
             this.props.fetchRandomPosts();
+        }
+        else {
+            this._addAllGridsToGridHolder(); 
         }
 
         if (!this.props.isFetching) {
             this._addGridsToGridHolder(); 
         }
     }
-
+    _addAllGridsToGridHolder() {
+        // needed when component is re-mounted when coming back from a different route 
+        const gridHolder = document.getElementById('gridHolder');
+        for (let grid of this.props.items) {
+            gridHolder.appendChild(grid); 
+        }
+    }
     _addGridsToGridHolder() {
         const gridHolder = document.getElementById('gridHolder');
         gridHolder.appendChild(this.props.items[this.props.items.length-1]);
