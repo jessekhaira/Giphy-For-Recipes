@@ -41,9 +41,9 @@ class Recipes extends React.Component{
             gridHolder.appendChild(grid); 
         }
     }
-    _addGridsToGridHolder() {
+    _addLastGridToGridHolder(lastGrid) {
         const gridHolder = document.getElementById('gridHolder');
-        gridHolder.appendChild(this.props.items[this.props.items.length-1]);
+        gridHolder.appendChild(lastGrid); 
     }
 
     _addClickEventListenerStar(lastGridAdded = null) {
@@ -67,9 +67,9 @@ class Recipes extends React.Component{
 
     componentDidUpdate(prevProps) {
         if (prevProps.items.length !== this.props.items.length) {
-            this._addGridsToGridHolder(); 
             // only add the star event listener to the last grid added
-            let lastGridAdded = document.getElementById('gridHolder').children[document.getElementById('gridHolder').children.length-1];
+            let lastGridAdded = this.props.items[this.props.items.length-1]; 
+            this._addLastGridToGridHolder(lastGridAdded); 
             this._addClickEventListenerStar(lastGridAdded); 
            }
     }
