@@ -5,14 +5,14 @@ export default function recievePostsReducer(state, action) {
     for (const grid of state.items) {
         newItems.push(grid.cloneNode(true)); 
     }
-    const newGridAdded = makeNewGrid();
+    const gridHolder = document.getElementById('gridHolder');
+    const newGridAdded = makeNewGrid(gridHolder.children.length);
     const newGridChildren = newGridAdded.children;
     for (let i=0; i<9; i++) {
         addApiInfoToGrid(action, newGridChildren, i); 
     }
     // Remove the spinner - if we get to this point, it is guaranteed to be the last
     // element in the grid holder 
-    const gridHolder = document.getElementById('gridHolder');
     gridHolder.removeChild(gridHolder.lastChild);
     newItems.push(newGridAdded); 
     return Object.assign({}, 

@@ -1,9 +1,10 @@
-function makeNewGrid() {
+function makeNewGrid(gridNumber) {
     const new_grid = document.createElement('div');
     new_grid.className = "grid";
     for (let i=0; i<9; i++) {
         const div = document.createElement('div');
         addImgDescrTitle(div);
+        div.id = String(gridNumber) + String(i); 
         new_grid.appendChild(div);
     }
     return new_grid; 

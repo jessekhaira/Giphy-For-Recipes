@@ -1,7 +1,5 @@
 import React from 'react';
-import {connect} from 'react-redux';
-import {makeNewGrid, addSpinnerDiv} from '../grid_utils/grid_utils';
-import { icon } from '@fortawesome/fontawesome-svg-core';
+let count = 0; 
 class Recipes extends React.Component{
     constructor(props) {
         super(props);
@@ -92,7 +90,8 @@ class Recipes extends React.Component{
         // to the favourites 
         // if the user clicks directly on star, the e will be the icon and not the wrapper, which is
         // what we want it to be
-        if (this.props.favourites.has(potentialPost)) {
+        count += 1 
+        if (this.props.favourites.has(potentialPost.id)) {
             this.props.removeFromFavourites(potentialPost); 
             iconStar.className = 'far fa-star '
         }
