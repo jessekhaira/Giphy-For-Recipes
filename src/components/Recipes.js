@@ -5,7 +5,7 @@ import mapStateToPropsRecipes from '../React-Redux-maps/Recipes/mapStateToProps'
 
 import {makeNewGrid, addSpinnerDiv} from '../grid_utils/grid_utils';
 import { icon } from '@fortawesome/fontawesome-svg-core';
-
+let count = 0; 
 class Recipes extends React.Component{
     constructor(props) {
         super(props);
@@ -13,6 +13,7 @@ class Recipes extends React.Component{
         this._addWindowEventListener = this._addWindowEventListener.bind(this);
         this._windowEventListener = this._windowEventListener.bind(this);
         this._starIconClickHandler = this._starIconClickHandler.bind(this); 
+        this.didInitStarHandler = 0; 
     }
 
 
@@ -21,7 +22,6 @@ class Recipes extends React.Component{
         // get new data if we scroll past a certain point - infinite scrolling 
         // should be disabled for favourites route though 
         this._addWindowEventListener();
-
         // force window to always start at 0,0 on refresh to make sure all async activity
         // works properly 
         window.onbeforeunload = function () {
@@ -33,12 +33,12 @@ class Recipes extends React.Component{
         if (this.props.items.length === 0) {
             this.props.fetchRandomPosts();
         }
-        else {
-            this._addAllGridsToGridHolder(); 
-        }
 
         if (!this.props.isFetching) {
             this._addGridsToGridHolder(); 
+            [...document.getElementsByTagName('i')].forEach((starWrapper) => {
+                starWrapper.addEventListener('click', this._starIconClickHandler);
+            });
         }
     }
     _addAllGridsToGridHolder() {
@@ -56,24 +56,27 @@ class Recipes extends React.Component{
     componentDidUpdate(prevProps) {
         if (prevProps.items.length !== this.props.items.length) {
             this._addGridsToGridHolder(); 
-            // adding click functionality here to the star icon, can't do it before because it is not loaded in the DOM
-            // at those points
-            [...document.getElementsByClassName('starWrapper')].forEach((starWrapper) => {
-                starWrapper.addEventListener('click', this._starIconClickHandler);
-            })
+            // have to add the event listener the first time, the remainder we should not have to
+            console.log(document.getElementsByTagName('i').length); 
+            if (!this.didInitStarHandler) {
+                [...document.getElementsByTagName('i')].forEach((starWrapper) => {
+                    starWrapper.addEventListener('click', this._starIconClickHandler);
+                });
+                this.didInitStarHandler = 1; 
+            }
         }
     }
 
+    componentWillUnmount() {
+        [...document.getElementsByTagName('i')].forEach((starWrapper) => {
+            starWrapper.removeEventListener('click', this._starIconClickHandler);
+        }) 
+    }
+
     _starIconClickHandler(e) {
-        let iconStar = null;
+        let iconStar = e.target;
         // if the user clicks directly on star, the e will be the icon and not the wrapper, which is
         // what we want it to be
-        if (e.target.children.length === 0) {
-            iconStar = e.target;
-        }
-        else {
-            iconStar = e.target.children[0]; 
-        }
         const potentialPost = e.target.closest('.gridCell'); 
         // we will check if the post is already in the favourites
         // if it is, then that means we are removing this from the favourites, not adding it
@@ -82,8 +85,7 @@ class Recipes extends React.Component{
         // to the favourites 
         // if the user clicks directly on star, the e will be the icon and not the wrapper, which is
         // what we want it to be
-        console.log(iconStar);
-        if (this.props.favourited.has(potentialPost)) {
+        if (this.props.favourites.has(potentialPost)) {
             this.props.removeFromFavourites(potentialPost); 
             iconStar.className = 'far fa-star '
         }
@@ -126,6 +128,4 @@ class Recipes extends React.Component{
     }
 }
 
-let connectedComponent = connect(mapStateToPropsRecipes, mapDispatchToPropsRecipes)(Recipes); 
-
-export {connectedComponent as Recipes};  
+export default Recipes; 

@@ -3,6 +3,6 @@ export default function(state) {
         isFetching: state.homePage.isFetching,
         lastUpdated: state.homePage.lastUpdated,
         items: state.homePage.items,
-        favourited: state.favourites
+        favourites: state.favourites
     }
 }
