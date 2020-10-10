@@ -1,11 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import mapDispatchToPropsRecipes from '../React-Redux-maps/Recipes/mapDispatchToProps';
-import mapStateToPropsRecipes from '../React-Redux-maps/Recipes/mapStateToProps';
-
 import {makeNewGrid, addSpinnerDiv} from '../grid_utils/grid_utils';
 import { icon } from '@fortawesome/fontawesome-svg-core';
-let count = 0; 
 class Recipes extends React.Component{
     constructor(props) {
         super(props);
@@ -36,9 +32,7 @@ class Recipes extends React.Component{
 
         if (!this.props.isFetching) {
             this._addGridsToGridHolder(); 
-            [...document.getElementsByTagName('i')].forEach((starWrapper) => {
-                starWrapper.addEventListener('click', this._starIconClickHandler);
-            });
+            this._addClickEventListenerStar(); 
         }
     }
     _addAllGridsToGridHolder() {
@@ -53,15 +47,19 @@ class Recipes extends React.Component{
         gridHolder.appendChild(this.props.items[this.props.items.length-1]);
     }
 
+    _addClickEventListenerStar() {
+        [...document.getElementsByTagName('i')].forEach((starWrapper) => {
+            starWrapper.addEventListener('click', this._starIconClickHandler);
+        });
+    }
+
     componentDidUpdate(prevProps) {
         if (prevProps.items.length !== this.props.items.length) {
             this._addGridsToGridHolder(); 
             // have to add the event listener the first time, the remainder we should not have to
             console.log(document.getElementsByTagName('i').length); 
             if (!this.didInitStarHandler) {
-                [...document.getElementsByTagName('i')].forEach((starWrapper) => {
-                    starWrapper.addEventListener('click', this._starIconClickHandler);
-                });
+                this._addClickEventListenerStar(); 
                 this.didInitStarHandler = 1; 
             }
         }
