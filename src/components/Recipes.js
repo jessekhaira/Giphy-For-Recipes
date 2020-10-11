@@ -7,7 +7,6 @@ class Recipes extends React.Component{
         // need local state for grid
         this._addWindowEventListener = this._addWindowEventListener.bind(this);
         this._windowEventListener = this._windowEventListener.bind(this);
-        this._starIconClickHandler = this._starIconClickHandler.bind(this); 
     }
 
 
@@ -16,12 +15,6 @@ class Recipes extends React.Component{
         // get new data if we scroll past a certain point - infinite scrolling 
         // should be disabled for favourites route though 
         this._addWindowEventListener();
-        // force window to always start at 0,0 on refresh to make sure all async activity
-        // works properly 
-        window.onbeforeunload = function () {
-            window.scrollTo(0, 0);
-        }
-
         // if no items stored in the state, fetch some and make first grid
         // if items are stored, then grab them all and display them in a grid 
         if (this.props.items.length === 0) {
@@ -31,8 +24,27 @@ class Recipes extends React.Component{
         if (!this.props.isFetching) {
             this._addAllGridsToGridHolder(); 
             this._addClickEventListenerStar(); 
+            // we allow the favourites status to be updated on the favourites page as well, so just check
+            // here which elements are favourited and which are not and color stars accordingly
+            this._updateStarStatus(); 
         }
     }
+
+    _updateStarStatus() {
+        const gridHolder = document.getElementById('gridHolder');
+        for (let grid of gridHolder.children) {
+            for (let gridCell of grid.children) {
+                let iconObj = gridCell.querySelectorAll('i')[0]; 
+                if (!this.props.favourites.has(gridCell.id)) {
+                    iconObj.className = 'far fa-star';
+                }
+                else {
+                    iconObj.className = 'fas fa-star';
+                }
+            }
+        }
+    }
+
     _addAllGridsToGridHolder() {
         // needed when component is re-mounted when coming back from a different route 
         const gridHolder = document.getElementById('gridHolder');
@@ -54,12 +66,12 @@ class Recipes extends React.Component{
         // provided to every single icon element 
         if (!lastGridAdded) {
             [...document.getElementsByTagName('i')].forEach((starWrapper) => {
-                starWrapper.addEventListener('click', this._starIconClickHandler);
+                starWrapper.addEventListener('click', this.props._starIconClickHandler);
             });
         }
         else {
             [...lastGridAdded.querySelectorAll('i')].forEach((starWrapper) => {
-                starWrapper.addEventListener('click', this._starIconClickHandler); 
+                starWrapper.addEventListener('click', this.props._starIconClickHandler); 
             });
         } 
     }
@@ -80,28 +92,6 @@ class Recipes extends React.Component{
 
         window.removeEventListener('scroll', this._windowEventListener);
     }
-
-    _starIconClickHandler(e) {
-        let iconStar = e.target;
-        // if the user clicks directly on star, the e will be the icon and not the wrapper, which is
-        // what we want it to be. Cloning this to keep everything bug-free
-        const potentialPost = e.target.closest('.gridCell').cloneNode(true); 
-        // we will check if the post is already in the favourites if it is,
-        // then that means we are removing this from the favourites
-        // and the star icon should go from filled to unfilled. Otherwise, if the post is not
-        // in the favourites, then that means star icon goes from unfilled to filled and gets added
-        // to the favourites if the user clicks directly on star, the e will be the icon and not 
-        //the wrapper, which is what we want it to be
-        if (this.props.favourites.has(potentialPost.id)) {
-            this.props.removeFromFavourites(potentialPost); 
-            iconStar.className = 'far fa-star '
-        }
-        else {
-            this.props.addToFavourites(potentialPost); 
-            iconStar.className = 'fas fa-star '
-        }
-    }
-
 
     _addWindowEventListener() {
         window.addEventListener('scroll',this._windowEventListener);

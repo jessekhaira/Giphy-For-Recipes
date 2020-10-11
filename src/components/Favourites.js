@@ -7,7 +7,21 @@ class Favourites extends React.Component {
    }
 
    componentDidMount() {
+       window.scrollTo(0,0); 
        this._addFavouritedGridCellsToGrid();
+   }
+
+   componentWillUnmount() {
+    [...document.getElementsByTagName('i')].forEach((obj) => {
+        obj.removeEventListener('click', this.props._starIconClickHandler);
+    }) 
+   }
+
+   componentDidUpdate(prevProps) {
+       if (this.props.favourites.size !== prevProps.favourites.size) {
+           document.getElementById('favouritesHolder').textContent = '';  
+           this._addFavouritedGridCellsToGrid(); 
+       }
    }
 
    _addFavouritedGridCellsToGrid() {
@@ -25,6 +39,7 @@ class Favourites extends React.Component {
                grid = document.createElement('div');
                grid.className = 'grid';
            }
+           gridCell[1].querySelectorAll('i')[0].className = 'fas fa-star'; 
            grid.appendChild(gridCell[1]);  
            i++;
        }
@@ -33,6 +48,9 @@ class Favourites extends React.Component {
        if (grid.children.length > 0) {
            favouritesHolder.appendChild(grid); 
        }
+       [...document.getElementsByTagName('i')].forEach((obj) => {
+        obj.addEventListener('click', this.props._starIconClickHandler);
+        })
    }
     
     render() {
