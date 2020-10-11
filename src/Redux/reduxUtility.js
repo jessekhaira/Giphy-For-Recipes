@@ -1,6 +1,8 @@
 // constant for spinner 
 export const REQUEST_POSTS = "REQUEST_POSTS"; 
 
+export const REQUEST_SEARCH_POSTS = "REQUEST_SEARCH_POSTS";
+
 // constant for when data recieved from api
 export const RECIEVE_POSTS = "RECIEVE_POSTS"; 
 
