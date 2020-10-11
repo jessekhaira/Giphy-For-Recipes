@@ -98,8 +98,9 @@ class Recipes extends React.Component{
     }
 
     _windowEventListener() {
-        // account for fact we could be fetching data right now 
-        if (this.props.isFetching) {
+        // account for fact we could be fetching data right now or we're currently showing
+        // searched for items 
+        if (this.props.isFetching || this.props.showingSearch) {
             return;
         }
         const currentHeightOfPage = window.innerHeight + document.documentElement.scrollTop +1;
@@ -111,8 +112,8 @@ class Recipes extends React.Component{
     render() {
         return(
             <div id = "recipe_holder">
-                <div id = "gridHolder">
-                </div>
+                <div id ="searchResultHolder"></div> 
+                <div id = "gridHolder"></div>
             </div>
         )
     }

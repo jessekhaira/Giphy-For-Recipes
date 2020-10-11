@@ -128,6 +128,18 @@ function addSpinnerDiv() {
     gridHolder.appendChild(spinnerHolder); 
 }
 
+function searchBarSpinnerDiv() {
+    const spinnerHolder = document.createElement('div');
+    spinnerHolder.id = "spinnerHolder"; 
+    const spinner = document.createElement('div');
+    spinner.className = 'loader';
+    spinnerHolder.appendChild(spinner); 
+
+    const searchResultHolder = document.getElementById('searchResultHolder');
+    document.getElementById('gridHolder').style.display = 'none'; 
+    searchResultHolder.appendChild(spinnerHolder); 
+}
+
 function addHoverToLinks(obj) {
     obj.addEventListener('mouseover', function(e) {
         e.target.style.textDecoration = 'underline';
@@ -138,4 +150,4 @@ function addHoverToLinks(obj) {
     });
 }
 
-export {makeNewGrid, addImgDescrTitle, addSpinnerDiv,createRecipeDescrDiv, createStarIcon};
+export {makeNewGrid, addImgDescrTitle, addSpinnerDiv,createRecipeDescrDiv, createStarIcon, searchBarSpinnerDiv};
