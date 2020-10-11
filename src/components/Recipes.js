@@ -77,21 +77,21 @@ class Recipes extends React.Component{
         [...document.getElementsByTagName('i')].forEach((starWrapper) => {
             starWrapper.removeEventListener('click', this._starIconClickHandler);
         }) 
+
+        window.removeEventListener('scroll', this._windowEventListener);
     }
 
     _starIconClickHandler(e) {
         let iconStar = e.target;
         // if the user clicks directly on star, the e will be the icon and not the wrapper, which is
-        // what we want it to be
-        const potentialPost = e.target.closest('.gridCell'); 
-        // we will check if the post is already in the favourites
-        // if it is, then that means we are removing this from the favourites, not adding it
+        // what we want it to be. Cloning this to keep everything bug-free
+        const potentialPost = e.target.closest('.gridCell').cloneNode(true); 
+        // we will check if the post is already in the favourites if it is,
+        // then that means we are removing this from the favourites
         // and the star icon should go from filled to unfilled. Otherwise, if the post is not
         // in the favourites, then that means star icon goes from unfilled to filled and gets added
-        // to the favourites 
-        // if the user clicks directly on star, the e will be the icon and not the wrapper, which is
-        // what we want it to be
-        count += 1 
+        // to the favourites if the user clicks directly on star, the e will be the icon and not 
+        //the wrapper, which is what we want it to be
         if (this.props.favourites.has(potentialPost.id)) {
             this.props.removeFromFavourites(potentialPost); 
             iconStar.className = 'far fa-star '
@@ -108,10 +108,9 @@ class Recipes extends React.Component{
     }
 
     _windowEventListener() {
-        // account for different routes - /favourites doesn't have infinite scrolling
         // account for fact we could be fetching data right now 
-        if (document.getElementById('gridHolder') === null || this.props.isFetching) {
-            return; 
+        if (this.props.isFetching) {
+            return;
         }
         const currentHeightOfPage = window.innerHeight + document.documentElement.scrollTop +1;
         if (currentHeightOfPage>= document.documentElement.offsetHeight) {
