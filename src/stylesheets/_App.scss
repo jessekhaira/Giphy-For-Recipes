@@ -58,13 +58,28 @@ body, #root, #App, html {
 
 #search_bar {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   margin-bottom: 20px;
 }
 
+#mainSearch {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  width: 80%;
+}
+
+
+#backOffSearch {
+  @extend #submit_search; 
+  width: 10%;
+  display: none;
+}
 #search_query {
-  width: 40%;
+  width: 50%;
   padding: 8px;
   text-align: center;
   color: var(--accent-color-red);
@@ -77,6 +92,11 @@ body, #root, #App, html {
   color: white;
   border: none;
   margin-left: 3px;
+  transition: 0.2s linear;
+}
+
+#submit_search:hover {
+  background-color: #f75b5b;
 }
 
 #grid1 {
