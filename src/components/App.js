@@ -53,7 +53,6 @@ class App extends React.Component{
                   <div>
                     <NavBar />
                     <div id = "spacing_div"></div>
-                    <SearchBar /> 
                     <Favourites {...props} 
                     favourites = {this.props.favourites} 
                     addToFavourites = {this.props.addToFavourites} 
