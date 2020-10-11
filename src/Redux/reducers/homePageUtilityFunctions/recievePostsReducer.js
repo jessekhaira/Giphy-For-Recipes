@@ -22,7 +22,7 @@ export default function recievePostsReducer(state, action) {
     gridHolder.removeChild(gridHolder.lastChild);
     newItems.push(newGridAdded); 
     return Object.assign({}, 
-        {isFetching: false, lastUpdated: action.receivedAt, items: newItems}
+        {isFetching: false, lastUpdated: action.receivedAt, items: newItems, showingSearch: false}
     );
 }
 

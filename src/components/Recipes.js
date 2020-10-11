@@ -14,7 +14,6 @@ class Recipes extends React.Component{
         // Adding event listener to the window because we want to automatically go and 
         // get new data if we scroll past a certain point - infinite scrolling 
         // should be disabled for favourites route though 
-        console.log(this.props.showingSearch); 
         this._addWindowEventListener();
         // if no items stored in the state, fetch some and make first grid
         // if items are stored, then grab them all and display them in a grid 
