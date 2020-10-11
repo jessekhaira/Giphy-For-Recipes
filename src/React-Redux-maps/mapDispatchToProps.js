@@ -1,7 +1,7 @@
 import addToFavourites from '../Redux/action creators/addToFavourites';
 import removeFromFavourites from '../Redux/action creators/removeFromFavourites';
 import fetchRandomPosts from '../Redux/action creators/fetchRandomPosts';
-import searchForRecipe from '../Redux/action creators/searchForRecipe'; 
+import searchForRecipe from '../Redux/action creators/fetchSearchRecipes'; 
 
 export default function(dispatch) {
     return {

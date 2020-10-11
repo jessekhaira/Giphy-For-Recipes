@@ -10,6 +10,7 @@ export const ADD_TO_FAVOURITES = "ADD_TO_FAVOURITES";
 // removing post removes it from favourites
 export const REMOVE_FROM_FAVOURITES = "REMOVE_FROM_FAVOURITES"; 
 
+export const RECIEVE_SEARCH_POSTS = "RECIEVE_SEARCH_POSTS"; 
 
 // Create Reducer pure function
 export function createReducer(initialState, handlers) {
