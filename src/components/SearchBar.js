@@ -3,10 +3,18 @@ import React from 'react';
 class SearchBar extends React.Component {
     constructor(props) {
         super(props); 
+        this._submitClickHandler = this._submitClickHandler.bind(this); 
     }
 
     componentDidMount() {
-        console.log(this.props.showingSearch); 
+        document.getElementById('submit_search').addEventListener('click', this._submitClickHandler);
+    }
+
+    _submitClickHandler(e) {
+        const searchedForText = document.getElementById('search_query').value; 
+        // dispatch action to the redux store to update showingSearch to true, and fetch all the posts that 
+        // match query in the api 
+        this.props.searchForRecipe(searchedForText); 
     }
     render() {
         return(

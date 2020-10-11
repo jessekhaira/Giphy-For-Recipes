@@ -53,11 +53,14 @@ class App extends React.Component{
                   <div>
                     <NavBar />
                     <div id = "spacing_div"></div>
-                    <Favourites {...props} 
+
+                    <Favourites 
+                    {...props} 
                     favourites = {this.props.favourites} 
                     addToFavourites = {this.props.addToFavourites} 
                     removeFromFavourites = {this.props.removeFromFavourites}
-                    _starIconClickHandler = {this._starIconClickHandler}/> 
+                    _starIconClickHandler = {this._starIconClickHandler}
+                    /> 
                   </div>
                 )}></Route>
 
@@ -71,6 +74,7 @@ class App extends React.Component{
                   <SearchBar 
                   {...props} 
                   showingSearch = {this.props.showingSearch}
+                  searchForRecipe = {this.props.searchForRecipe} 
                   /> 
 
                   <Recipes 
