@@ -6,7 +6,8 @@ import requestPostsReducer from './homePageUtilityFunctions/requestPostsReducer'
 const INIT_STATE = {
     isFetching: true,
     lastUpdated: null,
-    items: [] 
+    items: [],
+    showingSearch: false 
 }; 
 
 // Object contains mapping from action types to handler functions which return new state objects in response

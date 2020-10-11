@@ -76,7 +76,8 @@ class App extends React.Component{
                   addToFavourites = {this.props.addToFavourites} 
                   removeFromFavourites = {this.props.removeFromFavourites}
                   fetchRandomPosts = {this.props.fetchRandomPosts}
-                  _starIconClickHandler = {this._starIconClickHandler}/> 
+                  _starIconClickHandler = {this._starIconClickHandler}
+                  showingSearch = {this.props.showingSearch}/> 
                 </div>
               )}></Route>
 

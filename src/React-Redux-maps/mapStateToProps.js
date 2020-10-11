@@ -3,6 +3,7 @@ export default function(state) {
         isFetching: state.homePage.isFetching,
         lastUpdated: state.homePage.lastUpdated,
         items: state.homePage.items,
-        favourites: state.favourites
+        favourites: state.favourites,
+        showingSearch: state.homePage.showingSearch
     }
 }

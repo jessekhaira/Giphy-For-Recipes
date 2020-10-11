@@ -20,7 +20,7 @@ function addImgDescrTitle(obj) {
 
 function createStarIcon() {
     const star_div = document.createElement('div');
-    star_div.id = 'star_div';
+    star_div.id = 'star_div'; 
     const star = createStar(); 
     const starWrapper = createStarWrapper(); 
     // need a star wrapper in order to have the cursor being pointer
