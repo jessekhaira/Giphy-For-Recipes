@@ -1,7 +1,8 @@
-function makeNewGrid(gridNumber) {
+function makeNewGrid(gridNumber, gridCellsGrid = null) {
     const new_grid = document.createElement('div');
     new_grid.className = "grid";
-    for (let i=0; i<9; i++) {
+    let numGridCellsGrid = (gridCellsGrid === null ? 9: gridCellsGrid);
+    for (let i=0; i<numGridCellsGrid; i++) {
         const div = document.createElement('div');
         addImgDescrTitle(div);
         div.id = String(gridNumber) + String(i); 
@@ -136,6 +137,7 @@ function searchBarSpinnerDiv() {
     spinnerHolder.appendChild(spinner); 
 
     const searchResultHolder = document.getElementById('searchResultHolder');
+    searchResultHolder.style.display = 'block'; 
     document.getElementById('gridHolder').style.display = 'none'; 
     searchResultHolder.appendChild(spinnerHolder); 
 }

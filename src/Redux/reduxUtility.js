@@ -14,6 +14,8 @@ export const REMOVE_FROM_FAVOURITES = "REMOVE_FROM_FAVOURITES";
 
 export const RECIEVE_SEARCH_POSTS = "RECIEVE_SEARCH_POSTS"; 
 
+export const REMOVE_SEARCH_RESULTS = "REMOVE_SEARCH_RESULTS"; 
+
 // Create Reducer pure function
 export function createReducer(initialState, handlers) {
     return function reducer(state = initialState, action) {

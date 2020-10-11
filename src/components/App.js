@@ -74,7 +74,8 @@ class App extends React.Component{
                   <SearchBar 
                   {...props} 
                   showingSearch = {this.props.showingSearch}
-                  searchForRecipe = {this.props.searchForRecipe} 
+                  searchForRecipe = {this.props.searchForRecipe}
+                  removeSearchResults = {this.props.removeSearchResults} 
                   /> 
 
                   <Recipes 
