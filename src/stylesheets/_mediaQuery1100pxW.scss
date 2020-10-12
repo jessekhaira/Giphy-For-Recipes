@@ -2,9 +2,9 @@
 
     .grid {
         display: grid;
-        grid-template-rows: repeat(1, 310px);
+        grid-template-rows: repeat(9, 310px);
         grid-template-columns: repeat(1, 430px);
-        height: 2920px;
+        height: 2834px;
         justify-content: center;
     }
 
