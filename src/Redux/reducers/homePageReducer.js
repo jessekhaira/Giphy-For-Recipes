@@ -7,7 +7,7 @@ import recieveSearchPostsReducer from './homePageUtilityFunctions/recieveSearchP
 import removeSearchResultsReducer from './homePageUtilityFunctions/removeSearchResultsReducer';
 
 const INIT_STATE = {
-    isFetching: true,
+    isFetching: false,
     lastUpdated: null,
     items: [],
     showingSearch: false 

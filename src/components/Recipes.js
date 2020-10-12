@@ -15,13 +15,12 @@ class Recipes extends React.Component{
         // get new data if we scroll past a certain point - infinite scrolling 
         // should be disabled for favourites route though 
         this._addWindowEventListener();
-        // if no items stored in the state, fetch some and make first grid
-        // if items are stored, then grab them all and display them in a grid 
+        // if no items stored in the state, fetch some and make first grid only if we aren't already fetching
+        // if you have items to display, display them 
         if (this.props.items.length === 0) {
             this.props.fetchRandomPosts();
         }
-
-        if (!this.props.isFetching) {
+        if (this.props.items.length > 0) {
             this._addAllGridsToGridHolder(); 
             this._addClickEventListenerStar(); 
             // we allow the favourites status to be updated on the favourites page as well, so just check

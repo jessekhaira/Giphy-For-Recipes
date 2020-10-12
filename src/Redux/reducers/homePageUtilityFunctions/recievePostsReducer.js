@@ -8,9 +8,8 @@ export default function recievePostsReducer(state, action) {
     // if we don't detect a gridHolder on the DOM, that means we can't carry through with the update
     // thus return the original state
     if (gridHolder == null) {
-        return state; 
+        return Object.assign({}, state, {isFetching:false}); 
     }
-    
     const newGridAdded = makeNewGrid();
     const newGridChildren = newGridAdded.children;
     for (let i=0; i<9; i++) {
