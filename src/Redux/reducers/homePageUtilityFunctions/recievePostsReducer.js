@@ -1,5 +1,4 @@
-import {makeNewGrid} from '../../../grid_utils/grid_utils';
-import addApiInfoToGrid from './addApiInfoToGrid';
+import {makeNewGrid, addSearchInfoGrid, addInfoToGridCell} from '../../../grid_utils/grid_utils';
 export default function recievePostsReducer(state, action) {
     const newItems = [];
     for (const grid of state.items) {
@@ -12,10 +11,12 @@ export default function recievePostsReducer(state, action) {
         return state; 
     }
     
-    const newGridAdded = makeNewGrid(gridHolder.children.length);
+    const newGridAdded = makeNewGrid();
     const newGridChildren = newGridAdded.children;
     for (let i=0; i<9; i++) {
-        addApiInfoToGrid(action, newGridChildren, i); 
+        let gridCell = newGridChildren[i];
+        let meal = action.data[i].meals[0];
+        addInfoToGridCell(gridCell, meal);
     }
     // Remove the spinner - if we get to this point, it is guaranteed to be the last
     // element in the grid holder 

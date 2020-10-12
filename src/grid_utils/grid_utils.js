@@ -1,11 +1,10 @@
-function makeNewGrid(gridNumber, gridCellsGrid = null) {
+function makeNewGrid(gridCellsGrid = null) {
     const new_grid = document.createElement('div');
     new_grid.className = "grid";
     let numGridCellsGrid = (gridCellsGrid === null ? 9: gridCellsGrid);
     for (let i=0; i<numGridCellsGrid; i++) {
         const div = document.createElement('div');
         addImgDescrTitle(div);
-        div.id = String(gridNumber) + String(i); 
         new_grid.appendChild(div);
     }
     return new_grid; 
@@ -152,7 +151,8 @@ function addHoverToLinks(obj) {
     });
 }
 
-function addInfoToNodes(obj, img_thumbnail, recipeTitle, strSource, strYT) {
+function addInfoToNodes(obj, img_thumbnail, recipeTitle, strSource, strYT, idMeal) {
+    obj.id = idMeal; 
     const img_gridCell = obj.querySelectorAll('.recipeImgs')[0];
     const titleRecipe = obj.querySelectorAll('h2')[0];
     const recipeSourceLink = obj.querySelectorAll('a')[0]; 
@@ -176,4 +176,18 @@ function addInfoToNodes(obj, img_thumbnail, recipeTitle, strSource, strYT) {
 }
 
 
-export {makeNewGrid, addImgDescrTitle, addSpinnerDiv,createRecipeDescrDiv, createStarIcon, searchBarSpinnerDiv, addInfoToNodes};
+function addInfoToGridCell(gridCell, meal) {
+    console.log(meal); 
+    const idMeal = meal.idMeal; 
+    const img_thumbnail = meal.strMealThumb; 
+    const recipeTitle = meal.strMeal; 
+    const strSource = meal.strSource;
+    const strYT = meal.strYoutube; 
+    addInfoToNodes(gridCell, img_thumbnail, recipeTitle, strSource, strYT, idMeal); 
+}
+
+
+
+
+
+export {makeNewGrid, addImgDescrTitle, addSpinnerDiv,createRecipeDescrDiv, createStarIcon, searchBarSpinnerDiv, addInfoToGridCell};
