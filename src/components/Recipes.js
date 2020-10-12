@@ -112,7 +112,6 @@ class Recipes extends React.Component{
     render() {
         return(
             <div id = "recipe_holder">
-                <div id ="searchResultHolder"></div> 
                 <div id = "gridHolder"></div>
             </div>
         )

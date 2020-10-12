@@ -1,3 +1,4 @@
+import { icon } from '@fortawesome/fontawesome-svg-core';
 import React from 'react';
 
 class SearchBar extends React.Component {
@@ -5,6 +6,7 @@ class SearchBar extends React.Component {
         super(props); 
         this._submitClickHandler = this._submitClickHandler.bind(this); 
         this._backClickHandler = this._backClickHandler.bind(this); 
+        this._unMountStarClickListener = this._unMountStarClickListener.bind(this);
     }
 
     componentDidMount() {
@@ -12,9 +14,37 @@ class SearchBar extends React.Component {
         document.getElementById('backOffSearch').addEventListener('click', this._backClickHandler);
     }
 
+    componentDidUpdate(prevProps) {
+        if (this.props.showingSearch) {
+            const searchResultHolder = document.getElementById('searchResultHolder');
+            for (const grid of searchResultHolder.children) {
+                for (const gridCell of grid.children) {
+                    const icon = gridCell.querySelectorAll('i')[0]; 
+                    icon.addEventListener('click', this.props._starIconClickHandler);
+                }
+            }
+        }
+    }
+
     componentWillUnmount() {
         document.getElementById('submit_search').removeEventListener('click', this._submitClickHandler);
         document.getElementById('backOffSearch').removeEventListener('click', this._backClickHandler);
+        // we can click to go from searched results to the favourites tab, therefore we need to make sure that
+        // showing search is false 
+        this.props.removeSearchResults(); 
+        this._unMountStarClickListener(); 
+    }
+
+    _unMountStarClickListener() {
+        if (this.props.showingSearch) {
+            const searchResultHolder = document.getElementById('searchResultHolder');
+            for (let grid of searchResultHolder.children) {
+                for (let gridCell of grid.children) {
+                    const iconElement = gridCell.querySelectorAll('i')[0];
+                    iconElement.removeEventListener('click', this.props._starIconClickHandler);
+                }
+            }
+        }
     }
 
     _backClickHandler(e) {
@@ -42,6 +72,7 @@ class SearchBar extends React.Component {
                     <button id = "submit_search">Search</button>
                 </div>
                 <button id = "backOffSearch">Go Back</button>
+                <div id ="searchResultHolder"></div> 
             </div>
         )
     }

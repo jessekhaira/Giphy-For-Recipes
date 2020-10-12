@@ -152,4 +152,28 @@ function addHoverToLinks(obj) {
     });
 }
 
-export {makeNewGrid, addImgDescrTitle, addSpinnerDiv,createRecipeDescrDiv, createStarIcon, searchBarSpinnerDiv};
+function addInfoToNodes(obj, img_thumbnail, recipeTitle, strSource, strYT) {
+    const img_gridCell = obj.querySelectorAll('.recipeImgs')[0];
+    const titleRecipe = obj.querySelectorAll('h2')[0];
+    const recipeSourceLink = obj.querySelectorAll('a')[0]; 
+    const recipeYTLink = obj.querySelectorAll('a')[1];
+
+    img_gridCell.src = img_thumbnail;
+    titleRecipe.innerHTML = recipeTitle; 
+    //txt nodes to add to paragraph elements
+    if (strSource) {
+        recipeSourceLink.href = strSource; 
+        recipeSourceLink.innerHTML = 'Click me to find out more information about this recipe!'
+    }
+    recipeYTLink.href = strYT;
+    if (strYT) {
+        recipeYTLink.innerHTML = 'Click me to find out more information about this recipe in video format!'
+    }
+
+    if (!strSource && !strYT) {
+        recipeSourceLink.innerHTML = 'No further information about this recipe available'
+    }
+}
+
+
+export {makeNewGrid, addImgDescrTitle, addSpinnerDiv,createRecipeDescrDiv, createStarIcon, searchBarSpinnerDiv, addInfoToNodes};

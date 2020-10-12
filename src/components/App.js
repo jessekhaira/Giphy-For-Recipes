@@ -76,6 +76,10 @@ class App extends React.Component{
                   showingSearch = {this.props.showingSearch}
                   searchForRecipe = {this.props.searchForRecipe}
                   removeSearchResults = {this.props.removeSearchResults} 
+                  addToFavourites = {this.props.addToFavourites}
+                  removeFromFavourites = {this.props.removeFromFavourites}
+                  favourites = {this.props.favourites} 
+                  _starIconClickHandler = {this._starIconClickHandler}
                   /> 
 
                   <Recipes 
