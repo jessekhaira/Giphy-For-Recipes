@@ -114,7 +114,6 @@ function styleAnchorLinks(...args) {
         obj.style.fontFamily = "Dosis";
         obj.style.color = 'rgb(245, 85,85)';
         obj.style.fontSize = '14px';
-        addHoverToLinks(obj); 
     }
 }
 
@@ -189,4 +188,4 @@ function addInfoToGridCell(gridCell, meal) {
 
 
 
-export {makeNewGrid, addImgDescrTitle, addSpinnerDiv,createRecipeDescrDiv, createStarIcon, searchBarSpinnerDiv, addInfoToGridCell};
+export {makeNewGrid, addHoverToLinks ,addImgDescrTitle, addSpinnerDiv,createRecipeDescrDiv, createStarIcon, searchBarSpinnerDiv, addInfoToGridCell};

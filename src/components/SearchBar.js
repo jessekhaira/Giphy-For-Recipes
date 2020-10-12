@@ -1,6 +1,7 @@
 import { icon } from '@fortawesome/fontawesome-svg-core';
 import React from 'react';
 
+
 class SearchBar extends React.Component {
     constructor(props) {
         super(props); 
@@ -21,11 +22,11 @@ class SearchBar extends React.Component {
                 for (const gridCell of grid.children) {
                     const icon = gridCell.querySelectorAll('i')[0]; 
                     icon.addEventListener('click', this.props._starIconClickHandler);
-
                     // items can be starred already coming in from the homepage -- account for that  
                     this.props._updateStarStatus(document.getElementById('searchResultHolder'));
                 }
             }
+            this.props.addHoverToAllAnchorLinks(); 
         }
     }
 

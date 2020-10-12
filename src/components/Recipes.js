@@ -27,6 +27,7 @@ class Recipes extends React.Component{
             // we allow the favourites status to be updated on the favourites page as well, so just check
             // here which elements are favourited and which are not and color stars accordingly
             this.props._updateStarStatus(document.getElementById('gridHolder')); 
+            this.props.addHoverToAllAnchorLinks(); 
         }
     }
 
@@ -67,6 +68,7 @@ class Recipes extends React.Component{
             let lastGridAdded = this.props.items[this.props.items.length-1]; 
             this._addLastGridToGridHolder(lastGridAdded); 
             this._addClickEventListenerStar(lastGridAdded); 
+            this.props.addHoverToAllAnchorLinks(); 
            }
     }
 

@@ -13,6 +13,7 @@ import {
 import '../stylesheets/App.css'
 import mapStateToProps from '../React-Redux-maps/mapStateToProps';
 import mapDispatchToProps from '../React-Redux-maps/mapDispatchToProps';
+import {addHoverToLinks} from '../grid_utils/grid_utils';
 
 
 class App extends React.Component{
@@ -36,6 +37,15 @@ class App extends React.Component{
             }
         }
     }
+  }
+
+  addHoverToAllAnchorLinks() {
+    [...document.querySelectorAll('.gridCell')].forEach((obj) => {
+        const anchorLinks = obj.querySelectorAll('a');
+        for (const link of anchorLinks) {
+            addHoverToLinks(link); 
+        }
+    });
   }
 
   _starIconClickHandler(e) {
@@ -86,6 +96,7 @@ class App extends React.Component{
                     addToFavourites = {this.props.addToFavourites} 
                     removeFromFavourites = {this.props.removeFromFavourites}
                     _starIconClickHandler = {this._starIconClickHandler}
+                    addHoverToAllAnchorLinks = {this.addHoverToAllAnchorLinks}
                     /> 
                   </div>
                 )}></Route>
@@ -107,6 +118,7 @@ class App extends React.Component{
                   favourites = {this.props.favourites} 
                   _starIconClickHandler = {this._starIconClickHandler}
                   _updateStarStatus = {this._updateStarStatus}
+                  addHoverToAllAnchorLinks = {this.addHoverToAllAnchorLinks}
                   /> 
 
                   <Recipes 
@@ -120,6 +132,7 @@ class App extends React.Component{
                   _starIconClickHandler = {this._starIconClickHandler}
                   showingSearch = {this.props.showingSearch}
                   _updateStarStatus = {this._updateStarStatus}
+                  addHoverToAllAnchorLinks = {this.addHoverToAllAnchorLinks} 
                   /> 
 
                 </div>

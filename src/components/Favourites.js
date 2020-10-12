@@ -9,18 +9,21 @@ class Favourites extends React.Component {
    componentDidMount() {
        window.scrollTo(0,0); 
        this._addFavouritedGridCellsToGrid();
+       this.props.addHoverToAllAnchorLinks(); 
    }
 
    componentWillUnmount() {
-    [...document.getElementsByTagName('i')].forEach((obj) => {
-        obj.removeEventListener('click', this.props._starIconClickHandler);
-    }) 
+        [...document.getElementsByTagName('i')].forEach((obj) => {
+            obj.removeEventListener('click', this.props._starIconClickHandler);
+        }) 
    }
 
    componentDidUpdate(prevProps) {
        if (this.props.favourites.size !== prevProps.favourites.size) {
            document.getElementById('favouritesHolder').textContent = '';  
            this._addFavouritedGridCellsToGrid(); 
+           // add hover effect to all the anchor tags 
+           this.props.addHoverToAllAnchorLinks(); 
        }
    }
 
