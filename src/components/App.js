@@ -26,7 +26,8 @@ class App extends React.Component{
     let iconStar = e.target;
     // if the user clicks directly on star, the e will be the icon and not the wrapper, which is
     // what we want it to be. Cloning this to keep everything bug-free
-    const potentialPost = e.target.closest('.gridCell').cloneNode(true); 
+    let gridCell = e.target.closest('.gridCell');
+    const potentialPost = gridCell.cloneNode(true); 
     // we will check if the post is already in the favourites if it is,
     // then that means we are removing this from the favourites
     // and the star icon should go from filled to unfilled. Otherwise, if the post is not
@@ -35,6 +36,9 @@ class App extends React.Component{
     //the wrapper, which is what we want it to be
     if (this.props.favourites.has(potentialPost.id)) {
         this.props.removeFromFavourites(potentialPost); 
+        // since there can be multiple elements with the same id (ie we can have repeats of the same item)
+        // get every single item with this id and remove the star from each of them 
+        console.log(document.getElementById(gridCell.id)); 
         iconStar.className = 'far fa-star '
     }
     else {

@@ -152,7 +152,7 @@ function addHoverToLinks(obj) {
 }
 
 function addInfoToNodes(obj, img_thumbnail, recipeTitle, strSource, strYT, idMeal) {
-    obj.id = idMeal; 
+    obj.classList.add(idMeal); 
     const img_gridCell = obj.querySelectorAll('.recipeImgs')[0];
     const titleRecipe = obj.querySelectorAll('h2')[0];
     const recipeSourceLink = obj.querySelectorAll('a')[0]; 
@@ -177,7 +177,6 @@ function addInfoToNodes(obj, img_thumbnail, recipeTitle, strSource, strYT, idMea
 
 
 function addInfoToGridCell(gridCell, meal) {
-    console.log(meal); 
     const idMeal = meal.idMeal; 
     const img_thumbnail = meal.strMealThumb; 
     const recipeTitle = meal.strMeal; 
