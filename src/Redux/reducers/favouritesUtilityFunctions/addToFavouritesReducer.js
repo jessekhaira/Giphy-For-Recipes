@@ -6,6 +6,7 @@ export default function addToFavouritesReducer(state, action) {
         returnObj.set(gridId, state.get(gridId).cloneNode(true)); 
     }
     // add new post object to the new state 
-    returnObj.set(action.post.id, action.post); 
+    const postId = action.post.classList[action.post.classList.length-1];
+    returnObj.set(postId, action.post); 
     return returnObj; 
 }

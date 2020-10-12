@@ -4,8 +4,9 @@ export default function removeFromFavouritesReducer(state, action) {
     for (const gridId of state.keys()) {
         returnObj.set(gridId, state.get(gridId).cloneNode(true)); 
     }
-    // remove the deleted node from the object 
-    returnObj.delete(action.post.id); 
+    // remove the deleted node from the object
+    const postId = action.post.classList[action.post.classList.length-1]; 
+    returnObj.delete(postId); 
     return returnObj; 
 }
 

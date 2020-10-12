@@ -26,22 +26,7 @@ class Recipes extends React.Component{
             this._addClickEventListenerStar(); 
             // we allow the favourites status to be updated on the favourites page as well, so just check
             // here which elements are favourited and which are not and color stars accordingly
-            this._updateStarStatus(); 
-        }
-    }
-
-    _updateStarStatus() {
-        const gridHolder = document.getElementById('gridHolder');
-        for (let grid of gridHolder.children) {
-            for (let gridCell of grid.children) {
-                let iconObj = gridCell.querySelectorAll('i')[0]; 
-                if (!this.props.favourites.has(gridCell.id)) {
-                    iconObj.className = 'far fa-star';
-                }
-                else {
-                    iconObj.className = 'fas fa-star';
-                }
-            }
+            this.props._updateStarStatus(document.getElementById('gridHolder')); 
         }
     }
 
