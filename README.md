@@ -14,4 +14,21 @@ The app is deployed on github pages and can be accessed at: https://13jk59.githu
 * Favourite feature supports favouriting or unfavouriting recipes on all routes. Favourited recipes can be viewed later on the favourites tab. 
 
 ## Screenshots
+Main UI. When home route is initialized, spinner is shown until data loads. 
+<br> 
+<img src="./screenshots/Initial Page Load.png" width="700">
 
+Home route after data loads 
+<br>
+<img src="./screenshots/Initial Data Load.png" width = "700">
+<br>
+
+Favourite feature shown here, with ability to favourite recipes on home page 
+<br>
+<img src="./screenshots/Showing Favourites Feature.png" width = "700">
+<br>
+
+After favouriting recipes, you can see them on the favourites route
+<br>
+<img src="./screenshots/Favourites Route.png" width = "700">
+<br>
