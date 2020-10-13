@@ -14,11 +14,13 @@ The app is deployed on github pages and can be accessed at: https://13jk59.githu
 * Favourite feature supports favouriting or unfavouriting recipes on all routes. Favourited recipes can be viewed later on the favourites tab. 
 
 ## Screenshots
-Main UI 
+Main UI. When home route is initialized, spinner is shown until data loads. 
 <br> 
-<img src="./screenshots/Initial Page Load.png" width="400">
+<img src="./screenshots/Initial Page Load.png" width="600">
 
-Selection of which letter to play with
+Home route after data loads 
 <br>
-<img src="./screenshots/Initial Data Load.png" width = "400">
+<img src="./screenshots/Initial Data Load.png" width = "600">
 <br>
+
+
