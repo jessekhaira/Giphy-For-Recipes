@@ -18,3 +18,7 @@ Main UI
 <br> 
 <img src="./screenshots/Initial Page Load.png" width="400">
 
+Selection of which letter to play with
+<br>
+<img src="./screenshots/Initial Data Load.png" width = "400">
+<br>
