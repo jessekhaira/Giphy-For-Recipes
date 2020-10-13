@@ -16,11 +16,11 @@ The app is deployed on github pages and can be accessed at: https://13jk59.githu
 ## Screenshots
 Main UI. When home route is initialized, spinner is shown until data loads. 
 <br> 
-<img src="./screenshots/Initial Page Load.png" width="600">
+<img src="./screenshots/Initial Page Load.png" width="800">
 
 Home route after data loads 
 <br>
-<img src="./screenshots/Initial Data Load.png" width = "600">
+<img src="./screenshots/Initial Data Load.png" width = "800">
 <br>
 
 
