@@ -14,4 +14,7 @@ The app is deployed on github pages and can be accessed at: https://13jk59.githu
 * Favourite feature supports favouriting or unfavouriting recipes on all routes. Favourited recipes can be viewed later on the favourites tab. 
 
 ## Screenshots
+Main UI 
+<br> 
+<img src="./screenshots/Initial Page Load.png" width="400">
 
