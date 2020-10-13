@@ -6,36 +6,32 @@ import removeFromFavourites from '../../Redux/action creators/removeFromFavourit
  describe('Testing Favourite page reducers', () => {
      test('Test adding to favourites page reducer', () => {
          const post = document.createElement('div');
-         post.id = 'test';
+         post.classList.add('1');
+         post.classList.add('234'); 
          const addToFavouritesAction = addToFavourites(post);
          const removeFromFavouritesAction = removeFromFavourites(post);
 
-         const expectedOutput = {
-             'test': post
-         };
+         const expectedOutput = new Map();
+         expectedOutput.set(post.classList[post.classList.length-1], post);
 
 
-         expect(expectedOutput).toEqual(favouritesPageReducer({}, addToFavouritesAction));
+         expect(expectedOutput).toEqual(favouritesPageReducer(new Map(), addToFavouritesAction));
      })
 
      test('Test removing from favourites page reducer', () => {
         const post1 = document.createElement('div');
-        post1.id = 'test1';
+        post1.classList.add('1');
+        post1.classList.add('234');         
         const post2 = document.createElement('div');
-        post2.id = 'test2';
+        post2.classList.add('1');
+        post2.classList.add('456');
 
         const removeFromFavouritesAction = removeFromFavourites(post1);
 
-        const expectedOutput = {
-            'test2': post2
-        };
-
-        const init_state = {
-            'test1': post1, 
-            'test2': post2
-        }
+        const expectedOutput = new Map();
+        expectedOutput.set(post2.classList[post2.classList.length-1], post2);
 
 
-        expect(expectedOutput).toEqual(favouritesPageReducer(init_state, removeFromFavouritesAction));
+        expect(expectedOutput).toEqual(favouritesPageReducer(expectedOutput, removeFromFavouritesAction));
     })
  })
