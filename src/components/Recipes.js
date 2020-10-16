@@ -30,6 +30,9 @@ class Recipes extends React.Component{
         }
     }
 
+    /**
+     * This method is used to add every single div held currently in the state to the grid holder.
+     */
     _addAllGridsToGridHolder() {
         // needed when component is re-mounted when coming back from a different route 
         const gridHolder = document.getElementById('gridHolder');
@@ -37,6 +40,12 @@ class Recipes extends React.Component{
             gridHolder.appendChild(grid); 
         }
     }
+
+    /**
+     * This method adds a grid to the grid holder. Used mainly to implement infinite scrolling, to add
+     * the newest grid created to the grid holder. 
+     * @param {HTMLElement} lastGrid The new grid to be added to the grid holder. 
+     */
     _addLastGridToGridHolder(lastGrid) {
         const gridHolder = document.getElementById('gridHolder');
         gridHolder.appendChild(lastGrid); 
