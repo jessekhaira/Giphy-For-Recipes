@@ -1,10 +1,8 @@
 import { icon } from '@fortawesome/fontawesome-svg-core';
 import React from 'react';
-let count = 0; 
 class Recipes extends React.Component{
     constructor(props) {
         super(props);
-        // need local state for grid
         this._addWindowEventListener = this._addWindowEventListener.bind(this);
         this._windowEventListener = this._windowEventListener.bind(this);
     }
