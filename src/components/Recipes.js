@@ -51,6 +51,13 @@ class Recipes extends React.Component{
         gridHolder.appendChild(lastGrid); 
     }
 
+    /**
+     * This method adds an event listener for the star icon in every single grid cell currently displayed
+     * on the page. 
+     * @param {HTMLElement} lastGridAdded If null, indicates we need to add event listener for every single grid
+     * on the page. If not null, new grid was added with infinite scrolling, so we have to add this event listener 
+     * for those cells. 
+     */
     _addClickEventListenerStar(lastGridAdded = null) {
         // This method should have two different behaviours
         // One behaviour accounts for infinite scrolling
