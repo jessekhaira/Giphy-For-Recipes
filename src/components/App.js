@@ -31,6 +31,13 @@ class App extends React.Component{
     this._updateStarStatus = this._updateStarStatus.bind(this); 
   }
 
+
+  /**
+   * Method that will be passed down as a prop into multiple wrapped components. Purpose of method is to
+   * render the correctversion of a star within the component, related to whether the grid cell is 
+   * favourited or not. 
+   * @param {HTMLElement} gridHolder Dom Node that holds all of the grid cells for the current component. 
+   */
   _updateStarStatus(gridHolder) {
     for (let grid of gridHolder.children) {
         for (let gridCell of grid.children) {

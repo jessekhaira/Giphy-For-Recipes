@@ -1,5 +1,13 @@
 import { icon } from '@fortawesome/fontawesome-svg-core';
 import React from 'react';
+
+/**
+ * This component is responsible for displaying recipes on the home route. This component will be mounted
+ * automatically when the page loads, and will dispatch a request to get data from the api and template
+ * the returned data within grid cells. This component also implements infinite scrolling, meaning more recipes 
+ * will be loaded onto the page as the user scrolls to the bottom of the page. 
+ * @class @public 
+ */
 class Recipes extends React.Component{
     constructor(props) {
         super(props);
