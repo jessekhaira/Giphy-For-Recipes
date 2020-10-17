@@ -59,7 +59,8 @@ class Recipes extends React.Component{
 
     /**
      * This method adds an event listener to the star icon. The event listener is added to the star icon either for 
-     * every single grid displayed on the page, or just for the dom node passed as an argument to the function.
+     * every single grid displayed on the page, or just for the icon elements nested within the dom node passed as an
+     * argument to the function. 
      * 
      *  
      * @param {HTMLElement} lastGridAdded If null, indicates we need to add event listener for every single icon node
