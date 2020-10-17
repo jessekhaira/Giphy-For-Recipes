@@ -16,6 +16,13 @@ import mapDispatchToProps from '../React-Redux-maps/mapDispatchToProps';
 import {addHoverToLinks} from '../grid_utils/grid_utils';
 
 
+/**
+ * This is the primary component for the application, which wraps all the individual children
+ * components and contains the logic for the routing. This component is connected with the redux store
+ * and passes down action creators and state from the redux store into children components through props.
+ * 
+ * @class @public
+ */
 class App extends React.Component{
   constructor(props) {
     super(props);
