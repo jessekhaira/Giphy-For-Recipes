@@ -3,7 +3,7 @@ import React from 'react';
 
 /**
  * This component is responsible for displaying recipes on the home route. This component will be mounted
- * automatically when the page loads, and will dispatch a request to get data from the api and template
+ * automatically when the website loads, and will dispatch a request to get data from the api and template
  * the returned data within grid cells. This component also implements infinite scrolling, meaning more recipes 
  * will be loaded onto the page as the user scrolls to the bottom of the page. 
  * @class @public 
@@ -58,11 +58,13 @@ class Recipes extends React.Component{
     }
 
     /**
-     * This method adds an event listener for the star icon in every single grid cell currently displayed
-     * on the page. 
-     * @param {HTMLElement} lastGridAdded If null, indicates we need to add event listener for every single grid
+     * This method adds an event listener to the star icon. The event listener is added to the star icon either for 
+     * every single grid displayed on the page, or just for the dom node passed as an argument to the function.
+     * 
+     *  
+     * @param {HTMLElement} lastGridAdded If null, indicates we need to add event listener for every single icon node
      * on the page. If not null, new grid was added with infinite scrolling, so we have to add this event listener 
-     * for those cells. 
+     * for just the icon elements within the last grid.
      */
     _addClickEventListenerStar(lastGridAdded = null) {
         // This method should have two different behaviours
