@@ -97,6 +97,12 @@ class Recipes extends React.Component{
         window.addEventListener('scroll',this._windowEventListener);
     }
 
+    /**
+     * This method is the event listener for the window object for the scroll event, which is how
+     * infinite scrolling is implemented. Basically, we get the current distance the user is from the 
+     * top of the page, and if that is greater than or equal to the height of the page, then we dispatch
+     * a redux thunk to the redux store to update the state with a new grid of posts. 
+     */
     _windowEventListener() {
         // account for fact we could be fetching data right now or we're currently showing
         // searched for items 
