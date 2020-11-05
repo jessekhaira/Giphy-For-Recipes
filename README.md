@@ -4,7 +4,7 @@ This is a single-page app I built using React and Redux utilizing the free recip
 
 The motivation for the project was to build an app similar to giphy for recipes, work with a real API, and practice some of the more advanced aspects of react and redux (asynchronous requests, redux thunks). 
 
-The app is deployed on github pages and can be accessed at: https://13jk59.github.io/Recipes-Api-React-Redux/. 
+The app is deployed on github pages and can be accessed at: https://13jk59.github.io/Giphy-For-Recipes/. 
 
 ## Features
 * Pulls 9 random recipes from the API when page first loads and templates api information in grids
