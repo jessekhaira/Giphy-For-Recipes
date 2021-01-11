@@ -1,6 +1,11 @@
 import React from 'react';
 import {Link} from "react-router-dom";
   
+
+/**
+ * This function represents a react functional component, which has the responsibility of 
+ * rendering the NavBar for the website. 
+ */
 function NavBar(props) {
     return (
         <div id = "navbar_info">

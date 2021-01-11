@@ -2,7 +2,7 @@
   "name": "api_recipes",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://13jk59.github.io/Recipes-Api-React-Redux/",
+  "homepage": "https://13jk59.github.io/Giphy-For-Recipes/",
   "dependencies": {
     "@fortawesome/fontawesome-free-regular": "^5.0.13",
     "@fortawesome/fontawesome-free-solid": "^5.0.13",
