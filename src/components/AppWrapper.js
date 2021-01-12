@@ -5,6 +5,10 @@ import {reduxStore} from '../Redux/store';
 import '../stylesheets/App.css';
 
 
+/**
+ * This function serves as a wrapper for the app in order to provide the redux store to
+ * the application. 
+ */
 function AppWrapper() {
   return (
       <Provider store = {reduxStore}>
