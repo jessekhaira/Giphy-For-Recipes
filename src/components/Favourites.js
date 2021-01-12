@@ -1,12 +1,19 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
+/**
+ * This class represents a React Component responsible for rendering and handling the logic for the favourites
+ * section of the UI. 
+ * 
+ * @class @public 
+ */
 class Favourites extends React.Component {
    constructor(props) {
        super(props);
    }
 
    componentDidMount() {
+       // every time component is mounted, scroll the window to the beginning 
        window.scrollTo(0,0); 
        this._addFavouritedGridCellsToGrid();
        this.props.addHoverToAllAnchorLinks(); 
