@@ -20,6 +20,7 @@ class Favourites extends React.Component {
    }
 
    componentWillUnmount() {
+       // remove the event listeners registered on every single recipe in the favourite grid 
         [...document.getElementsByTagName('i')].forEach((obj) => {
             obj.removeEventListener('click', this.props._starIconClickHandler);
         }) 
