@@ -34,6 +34,11 @@ class Favourites extends React.Component {
        }
    }
 
+   /**
+    * This method represents a function responsible for adding recipes the user has favourited to the 
+    * CSS grid contained in this component. The favourited grid cells are contained within the state
+    * stored in the redux store, which this component recieves in the this.props object. 
+    */
    _addFavouritedGridCellsToGrid() {
        // 9 grid cells per grid 
        let grid = document.createElement('div');
