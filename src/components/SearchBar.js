@@ -2,6 +2,12 @@ import { icon } from '@fortawesome/fontawesome-svg-core';
 import React from 'react';
 
 
+/**
+ * This class represents a React component responsible for rendering the section of the UI displaying
+ * the SearchBar. 
+ * 
+ * @class @public 
+ */
 class SearchBar extends React.Component {
     constructor(props) {
         super(props); 
