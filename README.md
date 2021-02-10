@@ -14,7 +14,11 @@ The app is deployed on github pages and can be accessed at: https://13jk59.githu
 * Favourite feature supports favouriting or unfavouriting recipes on all routes. Favourited recipes can be viewed later on the favourites tab. 
 
 ## Installation
-
+```
+git clone https://github.com/13jk59/Giphy-For-Recipes.git
+cd Giphy-For-Recipes
+npm start
+```
 
 ## Screenshots
 Main UI. When home route is initialized, redux thunk is dispatched for async call to fetch data
