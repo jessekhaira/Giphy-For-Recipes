@@ -1,10 +1,6 @@
 # API-Recipe-App
 ## Description
-This is a single-page app I built with React, Redux, and Sass, utilizing the free recipe API provided at: https://www.themealdb.com/api.php?ref=apilist.fun.
-
-The motivation for the project was to build an app similar to giphy for recipes. 
-
-The app is deployed on github pages and can be accessed at: https://13jk59.github.io/Giphy-For-Recipes/. 
+This is a single-page application I built with React, Redux, and Sass, with the aim of building an app similar to giphy for recipes. The app is deployed on github pages and can be accessed at: https://13jk59.github.io/Giphy-For-Recipes/. 
 
 ## Features
 * Pulls 9 random recipes from the API when page first loads and templates api information in grids
