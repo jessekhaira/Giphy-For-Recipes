@@ -17,6 +17,7 @@ The app is deployed on github pages and can be accessed at: https://13jk59.githu
 ```
 git clone https://github.com/13jk59/Giphy-For-Recipes.git
 cd Giphy-For-Recipes
+npm install
 npm start
 ```
 
