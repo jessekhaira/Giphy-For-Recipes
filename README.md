@@ -13,6 +13,9 @@ The app is deployed on github pages and can be accessed at: https://13jk59.githu
 * User can search for a specific recipe using the search feature 
 * Favourite feature supports favouriting or unfavouriting recipes on all routes. Favourited recipes can be viewed later on the favourites tab. 
 
+## Installation
+
+
 ## Screenshots
 Main UI. When home route is initialized, redux thunk is dispatched for async call to fetch data
 <br> 
