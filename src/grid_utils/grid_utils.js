@@ -162,11 +162,11 @@ function addInfoToNodes(obj, img_thumbnail, recipeTitle, strSource, strYT, idMea
     //txt nodes to add to paragraph elements
     if (strSource) {
         recipeSourceLink.href = strSource; 
-        recipeSourceLink.innerHTML = 'Click me to find out more information about this recipe!'
+        recipeSourceLink.innerHTML = 'Find out more information about this recipe!'
     }
     recipeYTLink.href = strYT;
     if (strYT) {
-        recipeYTLink.innerHTML = 'Click me to find out more information about this recipe in video format!'
+        recipeYTLink.innerHTML = 'Watch a video about this recipe!'
     }
 
     if (!strSource && !strYT) {
