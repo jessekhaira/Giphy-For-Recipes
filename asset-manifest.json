@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/Giphy-For-Recipes/static/css/main.0127e73e.chunk.css",
-    "main.js": "/Giphy-For-Recipes/static/js/main.e13b8b62.chunk.js",
-    "main.js.map": "/Giphy-For-Recipes/static/js/main.e13b8b62.chunk.js.map",
+    "main.js": "/Giphy-For-Recipes/static/js/main.a70c7d13.chunk.js",
+    "main.js.map": "/Giphy-For-Recipes/static/js/main.a70c7d13.chunk.js.map",
     "runtime-main.js": "/Giphy-For-Recipes/static/js/runtime-main.315b9a21.js",
     "runtime-main.js.map": "/Giphy-For-Recipes/static/js/runtime-main.315b9a21.js.map",
     "static/js/2.a974f222.chunk.js": "/Giphy-For-Recipes/static/js/2.a974f222.chunk.js",
     "static/js/2.a974f222.chunk.js.map": "/Giphy-For-Recipes/static/js/2.a974f222.chunk.js.map",
     "index.html": "/Giphy-For-Recipes/index.html",
-    "precache-manifest.8067a845875f9e0f59bab5267170dee1.js": "/Giphy-For-Recipes/precache-manifest.8067a845875f9e0f59bab5267170dee1.js",
+    "precache-manifest.23383cb57f053c8d4230b84d3807caf2.js": "/Giphy-For-Recipes/precache-manifest.23383cb57f053c8d4230b84d3807caf2.js",
     "service-worker.js": "/Giphy-For-Recipes/service-worker.js",
     "static/css/main.0127e73e.chunk.css.map": "/Giphy-For-Recipes/static/css/main.0127e73e.chunk.css.map",
     "static/js/2.a974f222.chunk.js.LICENSE.txt": "/Giphy-For-Recipes/static/js/2.a974f222.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.315b9a21.js",
     "static/js/2.a974f222.chunk.js",
     "static/css/main.0127e73e.chunk.css",
-    "static/js/main.e13b8b62.chunk.js"
+    "static/js/main.a70c7d13.chunk.js"
   ]
 }

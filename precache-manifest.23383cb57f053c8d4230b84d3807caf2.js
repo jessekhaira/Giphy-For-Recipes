@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "e4214c39dac113d7f20f19d85a287b00",
+    "revision": "19f51e035ddc9f157baa9eaf0e636565",
     "url": "/Giphy-For-Recipes/index.html"
   },
   {
-    "revision": "f3c272a74bbd3178f813",
+    "revision": "157354cb5549e444a3f0",
     "url": "/Giphy-For-Recipes/static/css/main.0127e73e.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/Giphy-For-Recipes/static/js/2.a974f222.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "f3c272a74bbd3178f813",
-    "url": "/Giphy-For-Recipes/static/js/main.e13b8b62.chunk.js"
+    "revision": "157354cb5549e444a3f0",
+    "url": "/Giphy-For-Recipes/static/js/main.a70c7d13.chunk.js"
   },
   {
     "revision": "6f9907b466d704771539",
