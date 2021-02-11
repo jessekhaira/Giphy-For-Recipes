@@ -112,8 +112,8 @@ function styleAnchorLinks(...args) {
     for (const obj of args) {
         obj.style.textDecoration = 'none';
         obj.style.fontFamily = "Dosis";
-        obj.style.color = 'rgb(245, 85,85)';
-        obj.style.fontSize = '14px';
+        obj.style.color = 'rgb(245, 209,250)';
+        obj.style.fontSize = '17px';
     }
 }
 
